@@ -65,6 +65,7 @@ void Qcurl::startnextdl()
      if(current==last&&state==3)
        {
         currenturl[0]='/0';
+        state=0;
         return;
        }     
      if(state==3)

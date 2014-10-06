@@ -4,17 +4,20 @@ Qcurl::Qcurl(QObject *parent):QObject(parent)
      {
       last=head=current=(struct Qcurldl *)malloc(sizeof(struct Qcurldl));
       curl_global_init(CURL_GLOBAL_ALL );
-
       state=0;
      }
 Qcurl::~Qcurl()
      {
-      curl_easy_cleanup(curl);
+      if (!thread.isNull())
+        {
+         thread->terminate();
+         thread->wait();
+         dl->deleteLater();
+        }
      }
 void Qcurl::appenddl(QString url,  QString file)
     {
      int n=url.size()+1;
-     //qDebug()<<url;
      char urlc[n];
      QChar temp;
      int i;
@@ -24,7 +27,6 @@ void Qcurl::appenddl(QString url,  QString file)
          urlc[i]=temp.unicode();
         }
      urlc[n-1]='\0';
-     //qDebug()<<urlc;
      n=file.size()+1;
      char filename[n];
      for(i=0;i<n-1;i++)
@@ -68,7 +70,6 @@ void Qcurl::startnextdl()
      if(state==3)
        {
         current=current->next;
-        //qDebug(current->url);
        }
      curl=curl_easy_init();
      curl_easy_setopt(curl,CURLOPT_NOPROGRESS,0);
@@ -79,7 +80,6 @@ void Qcurl::startnextdl()
      curl_easy_setopt(curl, CURLOPT_URL,current->url);
      strcpy(currenturl,current->url);
      curl_easy_setopt(curl, CURLOPT_WRITEDATA,current->fp);
-
      if(thread.isNull())
        {
         thread = new QThread(this);

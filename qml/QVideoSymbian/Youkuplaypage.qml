@@ -278,7 +278,7 @@ Mypage
                                      ykplayurl=Script.ykplayurl;
                                      if(eptopbuttons.selectitem==3)
                                        {
-                                         downloadmodel.append({"name":title+epbuttons.selectitem,"url":ykplayurl,"file":"E://"+id+epbuttons.selectitem+".mp4"});
+                                         downloadmodel.append({"name":title+epbuttons.selectitem,"url":ykplayurl,"file":"E:/"+id+epbuttons.selectitem+".mp4"});
                                          qcurl.appenddl(ykplayurl,"E://"+id+epbuttons.selectitem+".mp4");
                                          //console.log(ykplayurl);
                                         showmessage("已加入下载列表");

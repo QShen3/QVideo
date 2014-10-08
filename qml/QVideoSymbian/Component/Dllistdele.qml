@@ -45,7 +45,6 @@ Component
                                    if(progress.value===1)
                                      {
                                       Qt.openUrlExternally("file:///"+model.file);
-                                       console.log(model.file)
                                      }
                                   }
                         }          
@@ -66,7 +65,6 @@ Component
                                  if((currenturl===false)&&(fileexist===false))
                                    {
                                     progress.value=0;
-                                     //console.log(index+" "+currenturl+" "+fileexist);
                                    }
                                  if((currenturl===false)&&(fileexist===true))
                                    {

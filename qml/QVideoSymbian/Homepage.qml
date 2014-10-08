@@ -10,7 +10,11 @@ Mypage
                             ToolButton
                                       {
                                        iconSource: "../pic/close_inverted.svg";
-                                       onClicked: Qt.quit();
+                                       onClicked:
+                                                {
+                                                 saveache();
+                                                 Qt.quit();
+                                                }
                                        platformInverted: true;
                                       }
                             ToolButton

@@ -150,9 +150,29 @@ PageStackWindow
                             infobanner.open();
                            }
                         }
+                function saveache()
+                        {
+                         var arry=[];
+                         for(var i=0;i<downloadmodel.count;i++)
+                            {
+                             arry.push(downloadmodel.get(i));
+                            }
+                         var obj={"statuses": arry}
+                         utility.writedlache(JSON.stringify(obj));
+                        }
+                function loadache(oritxt)
+                        {
+                         var obj=JSON.parse(oritxt);
+                         downloadmodel.clear();
+                         for(var i in obj.statuses)
+                            {
+                             downloadmodel.append(obj.statuses[i]);
+                            }
+                        }
                 Component.onCompleted:
                          {
                           Script.setsignalcenter(signalcenter);
+                          loadache(utility.readdlache());
                           pageStack.push(homepage);
                          }
                }

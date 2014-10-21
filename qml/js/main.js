@@ -56,10 +56,10 @@ function getyoukulist(cid,ob,pg,area,genre,releaseyear)
         {
         switch(cid)
               {
-               case "100":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"anime_genre:"+genre+"releaseyear:"+releaseyear;
-               case "97":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"tv_genre:"+genre+"releaseyear:"+releaseyear;
-               case "85":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"variety_genre:"+genre+"releaseyear:"+releaseyear;
-               case "96":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"movie_genre:"+genre+"releaseyear:"+releaseyear;
+               case "100":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"anime_genre:"+genre+"releaseyear:"+releaseyear;break;
+               case "97":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"tv_genre:"+genre+"releaseyear:"+releaseyear;break;
+               case "85":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"variety_genre:"+genre+"releaseyear:"+releaseyear;break;
+               case "96":var url="http://api.3g.youku.com/layout/android3_0/item_list?pid=0865e0628a79dfbb&guid=19a417c47f4d96b14e735b4a3c71d2bf&cid="+cid+"&ob="+ob+"&pg="+pg+"&filter=area:"+area+"movie_genre:"+genre+"releaseyear:"+releaseyear;break;
               }
          sendWebRequest(url,loadyoukulist);
         }

@@ -144,7 +144,6 @@ function getykplayurl(id,quality)
          if(quality===1)
            {
             var url="http://v.youku.com/player/getPlaylist/VideoIDS/"+id+"/Pf/4/ctype/12/ev/1?__callback="
-             //console.log(url)
             sendWebRequest(url,laodykplayurl1);
            }
          if(quality===2)
@@ -159,7 +158,8 @@ function laodykplayurl1(oritxt)
          var sid, fileid, k, ts, token, oip, ep;
          var a = obj.data[0],c = E(F("b4eto0b4", [19, 1, 4, 7, 30, 14, 28, 8, 24,17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), na(a.ep));
          sid = c.split("_")[0];
-         token = c.split("_")[1];    
+         token = c.split("_")[1];
+
          fileid = getFileID(obj.data[0].streamfileids["3gphd"], obj["data"][0]["seed"]);
          k = obj["data"][0]["segs"]["3gphd"][0]["k"];
          ts = obj["data"][0]["segs"]["3gphd"][0]["seconds"];
@@ -168,7 +168,6 @@ function laodykplayurl1(oritxt)
          ykplayurl = "http://k.youku.com/player/getFlvPath/sid/" + sid;
          ykplayurl += "_00/st/mp4/fileid/" + fileid;
          ykplayurl += "?K=" + k;   
-         //ykplayurl += "&hd=1&myp=0";
          ykplayurl += "&ts=" + ts;
          ykplayurl += "&ypp=0&ctype=12&ev=1";
          ykplayurl += "&token=" + token;
@@ -185,20 +184,20 @@ function laodykplayurl2(oritxt)
          sid = c.split("_")[0];
          token = c.split("_")[1];
          fileid = getFileID(obj.data[0].streamfileids["mp4"], obj["data"][0]["seed"]);
-         k = obj["data"][0]["segs"]["mp4"][0]["k"];
-         ts = obj["data"][0]["segs"]["mp4"][0]["seconds"];
+         k = obj["data"][0]["segs"]["mp4"][1]["k"];
+         ts = obj["data"][0]["segs"]["mp4"][1]["seconds"];
          oip = obj["data"][0]["ip"];
+
          ep = encodeURIComponent(D(E(F("boa4poz1", [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + fileid + "_" + token)));
          ykplayurl = "http://k.youku.com/player/getFlvPath/sid/" + sid;
-         ykplayurl += "_00/st/mp4/fileid/" + fileid;
+         ykplayurl += "_01/st/mp4/fileid/" + fileid;
          ykplayurl += "?K=" + k;
-         //ykplayurl += "&hd=1&myp=0";
          ykplayurl += "&ts=" + ts;
-         ykplayurl += "&ypp=0&ctype=12&ev=1";
+         ykplayurl += "&ypp=0&ctype=12&ev=1&hd=1";
          ykplayurl += "&token=" + token;
          ykplayurl += "&oip=" + oip;
          ykplayurl += "&ep=" + ep;
-         ykplayurl += "&callback=";
+         //ykplayurl += "&callback=";
          signalcenter.ykurlloadfinish();
         }
 

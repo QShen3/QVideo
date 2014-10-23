@@ -150,6 +150,7 @@ function getykplayurl(id,quality)
            {
             var url="http://v.youku.com/player/getPlaylist/VideoIDS/"+id+"/Pf/4/ctype/12/ev/1?__callback="
             sendWebRequest(url,laodykplayurl2);
+            //sendWebRequest(url,loadykplayurltest);
            }
         }
 function laodykplayurl1(oritxt)
@@ -184,13 +185,13 @@ function laodykplayurl2(oritxt)
          sid = c.split("_")[0];
          token = c.split("_")[1];
          fileid = getFileID(obj.data[0].streamfileids["mp4"], obj["data"][0]["seed"]);
+    //console.log("there"+fileid);
          k = obj["data"][0]["segs"]["mp4"][1]["k"];
          ts = obj["data"][0]["segs"]["mp4"][1]["seconds"];
          oip = obj["data"][0]["ip"];
-
          ep = encodeURIComponent(D(E(F("boa4poz1", [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + fileid + "_" + token)));
          ykplayurl = "http://k.youku.com/player/getFlvPath/sid/" + sid;
-         ykplayurl += "_01/st/mp4/fileid/" + fileid;
+         ykplayurl += "_00/st/mp4/fileid/" + fileid;
          ykplayurl += "?K=" + k;
          ykplayurl += "&ts=" + ts;
          ykplayurl += "&ypp=0&ctype=12&ev=1&hd=1";
@@ -200,9 +201,58 @@ function laodykplayurl2(oritxt)
          //ykplayurl += "&callback=";
          signalcenter.ykurlloadfinish();
         }
+function loadykplayurltest(oritxt)
+        {
+         var obj=JSON.parse(oritxt);
+         var a=obj.data[0];
+         var bc=E(F("b4eto0b4", [19, 1, 4, 7, 30, 14, 28, 8, 24,17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), na(a.ep));
+         var sid=bc.split("_")[0];
+         var c="mp4"
+         for(var f=[],k=0,g=0;g<a.segs[c].length;g++)
+            {
+             var fileid=getfileidtest(a.streamfileids, c, parseInt(g),a.seed);
+             console.log("here"+fileid);
+            }
 
-
-
+        }
+function getfileidtest(a,c,b,f)
+        {
+         var streamFid;
+         for(var d in a)
+            {
+             if (d === c)
+               {
+                streamFid = a[d];
+                break;
+               }
+            }
+         c=cg_funtest(streamFid,f);
+         a = c.slice(0, 8);
+         b = b.toString(16);
+         1 == b.length && (b = "0" + b);
+         b = b.toUpperCase();
+         c = c.slice(10, c.length);
+         return a + b + c;
+        }
+function cg_funtest(a,seed)
+        {
+         var _cgStr;
+         _cgStr = "";
+         for (var ba = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ/\\:._-1234567890", c = ba.length, b = 0; b < c; b++)
+            {
+             var f = parseInt(rantest(seed) * ba.length);
+             _cgStr += ba.charAt(f);
+             ba = ba.split(ba.charAt(f)).join("")
+            }
+         for (a = a.split("*") , c = "", b = 0; b < a.length - 1; b++)
+             c += _cgStr.charAt(a[b]);
+         return c
+        }
+function rantest(seed)
+        {
+         seed = (211 * seed + 30031) % 65536;
+         return seed / 65536
+        }
 var tudoulist;
 function gettudoulist(firstTagId,sort,pg,area,genre,releaseyear)
         {

@@ -185,13 +185,15 @@ function laodykplayurl2(oritxt)
          sid = c.split("_")[0];
          token = c.split("_")[1];
          fileid = getFileID(obj.data[0].streamfileids["mp4"], obj["data"][0]["seed"]);
-    //console.log("there"+fileid);
+    console.log(fileid);
+    fileid=fileid.slice(0,9)+"1"+fileid.slice(10);
+    console.log(fileid);
          k = obj["data"][0]["segs"]["mp4"][1]["k"];
          ts = obj["data"][0]["segs"]["mp4"][1]["seconds"];
          oip = obj["data"][0]["ip"];
          ep = encodeURIComponent(D(E(F("boa4poz1", [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + fileid + "_" + token)));
          ykplayurl = "http://k.youku.com/player/getFlvPath/sid/" + sid;
-         ykplayurl += "_00/st/mp4/fileid/" + fileid;
+         ykplayurl += "_01/st/mp4/fileid/" + fileid;
          ykplayurl += "?K=" + k;
          ykplayurl += "&ts=" + ts;
          ykplayurl += "&ypp=0&ctype=12&ev=1&hd=1";

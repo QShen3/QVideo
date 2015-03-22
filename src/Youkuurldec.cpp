@@ -3,7 +3,8 @@
 #include <QDebug>
 Youkuurldec::Youkuurldec(QObject *parent) :QObject(parent)
 {
- key="qwer3as2jin4fdsa";
+ //key="qwer3as2jin4fdsa";
+    key="mykeymykeymykeym";
 }
 QString Youkuurldec::aesdec(QString datas, int blanknum)
        {

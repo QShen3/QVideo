@@ -3,25 +3,25 @@ TARGET = QVideo
 VERSION = 1.0.0
 
 DEFINES += VER=\\\"$$VERSION\\\"
-DEFINES += BUILDING_LIBCURL CURL_STATICLIB
+#DEFINES += BUILDING_LIBCURL CURL_STATICLIB
 
 QT += network webkit
 
-INCLUDEPATH += src\
-               curl-7.37.0/include\
-               curl-7.37.0/lib
+INCLUDEPATH += src
+               #curl-7.37.0/include\
+               #curl-7.37.0/lib
 
-include(curl-7.37.0/lib/curl.pri)
-include(curl-7.37.0/lib/vtls/vtls.pri)
+#include(curl-7.37.0/lib/curl.pri)
+#include(curl-7.37.0/lib/vtls/vtls.pri)
 
 HEADERS += \
           src/utility.h \
-          src/Youkuurldec.h\
-          src/Qcurl.h
+          src/Youkuurldec.h
+          #src/Qcurl.h
 SOURCES += main.cpp \
            src/utility.cpp \
-           src/Youkuurldec.cpp\
-           src/Qcurl.cpp
+           src/Youkuurldec.cpp
+           #src/Qcurl.cpp
 
 
 folder_symbian3.source = qml/QVideoSymbian

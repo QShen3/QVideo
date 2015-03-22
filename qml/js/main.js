@@ -202,6 +202,7 @@ function laodykplayurl2(oritxt)
              ykplayurl += "&ep=" + ep;
              ykplayurl += "\n";
             }
+         console.log(ykplayurl);
          signalcenter.ykurlloadfinish();
         }
 var tudoulist;

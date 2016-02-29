@@ -69,6 +69,8 @@ symbian{
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()
+
+    message(Symbian build)
 }
 
 contains(MEEGO_EDITION,harmattan){
@@ -89,6 +91,8 @@ contains(MEEGO_EDITION,harmattan){
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()
+
+    message(MeeGo build)
 }
 
 win32-g++{
@@ -101,6 +105,8 @@ win32-g++{
         qml/Win32/Dialog/*.qml
 
     include(deployment.pri)
+
+    message(Win32 build)
 }
 
 android{
@@ -125,4 +131,6 @@ android{
 
 
     include(deployment.pri)
+
+    message(Andriod build)
 }

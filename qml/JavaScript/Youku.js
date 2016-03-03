@@ -1,0 +1,4 @@
+.pragma library
+function Youku(){
+
+}

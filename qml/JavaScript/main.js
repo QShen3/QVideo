@@ -1,6 +1,62 @@
 .pragma library
 
-Qt.include("PPTVxmlana.js");
+function Request(url, method)
+{
+    this.url = url;
+    this.method = method;
+    this.query = "";
+    this.postData = "";
+
+    this.setQuery = function(query){
+             for (var k in query) {
+                 this.query += this.query === "" ? "?" : "&";
+                 this.query += k + "=" + encodeURIComponent(query[k]);
+             }
+         }
+
+    this.setParams = function(Params){
+             for (var k in params) {
+                 if (this.postData !== "")
+                     this.postData += "&";
+                 this.postData += k + "=" + encodeURIComponent(params[k]);
+             }
+         }
+
+    this.sendRequest = function(onSuccess, onFailure) {
+             var xhr = new XMLHttpRequest();
+             xhr.onreadystatechange = function() {
+                         if (xhr.readyState === XMLHttpRequest.DONE) {
+                             if (xhr.status == 200) {
+                                 try {
+                                     var resp = qmlApi.jsonParse(xhr.responseText)
+                                     if (resp.code == 200)
+                                         onSuccess(resp);
+                                     else
+                                         onFailure(resp.code)
+                                 }
+                                 catch (e) {
+                                     onFailure(e.toString());
+                                 }
+                             }
+                             else {
+                                 onFailure(xhr.status);
+                             }
+                         }
+                     };
+             xhr.open(this.method, this.url + this.query);
+             if (this.method === "POST") {
+                 xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+                 xhr.setRequestHeader("Content-Length", this.postData.length);
+                 xhr.send(this.postData);
+             }
+             else {
+                 xhr.send(null);
+             }
+         }
+}
+
+
+/*Qt.include("PPTVxmlana.js");
 Qt.include("Youkuurl.js")
 var signalcenter;
 function setsignalcenter(mycenter)
@@ -73,7 +129,7 @@ function loadyoukulist(oritxt)
          for(var i in obj.results)
             {
              youkulist.append(obj.results[i]);
-            }         
+            }
         }
 
 function getyoukuvideoinfo(id)
@@ -140,7 +196,7 @@ function loadykep(oritxt)
             }
         }
 function getykplayurl(id,quality)
-        {         
+        {
          if(quality===1)
            {
             var url="http://v.youku.com/player/getPlaylist/VideoIDS/"+id+"/Pf/4/ctype/12/ev/1?__callback="
@@ -163,11 +219,11 @@ function laodykplayurl1(oritxt)
          fileid = getFileID(obj.data[0].streamfileids["3gphd"], obj["data"][0]["seed"]);
          k = obj["data"][0]["segs"]["3gphd"][0]["k"];
          ts = obj["data"][0]["segs"]["3gphd"][0]["seconds"];
-         oip = obj["data"][0]["ip"];   
-         ep = encodeURIComponent(D(E(F("boa4poz1", [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + fileid + "_" + token)));   
+         oip = obj["data"][0]["ip"];
+         ep = encodeURIComponent(D(E(F("boa4poz1", [19, 1, 4, 7, 30, 14, 28, 8, 24, 17, 6, 35, 34, 16, 9, 10, 13, 22, 32, 29, 31, 21, 18, 3, 2, 23, 25, 27, 11, 20, 5, 15, 12, 0, 33, 26]).toString(), sid + "_" + fileid + "_" + token)));
          ykplayurl = "http://k.youku.com/player/getFlvPath/sid/" + sid;
          ykplayurl += "_00/st/mp4/fileid/" + fileid;
-         ykplayurl += "?K=" + k;   
+         ykplayurl += "?K=" + k;
          ykplayurl += "&ts=" + ts;
          ykplayurl += "&ypp=0&ctype=12&ev=1";
          ykplayurl += "&token=" + token;
@@ -323,3 +379,4 @@ function gettdplayurl(id,quality)
          var url ="http://api.flvxz.com/jsonp/purejson/site/tudou/vid/"+id;
 
         }
+*/

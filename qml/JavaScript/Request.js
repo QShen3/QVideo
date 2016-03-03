@@ -29,7 +29,7 @@ function Request(url, method)
                              if (xhr.status == 200) {
                                  try {
                                      var resp = qmlApi.jsonParse(xhr.responseText)
-                                     if (resp.code == 200)
+                                     if (resp.code === 200)
                                          onSuccess(resp);
                                      else
                                          onFailure(resp.code)

@@ -13,7 +13,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     viewer.rootContext()->setContextProperty("utility", &utility);
 
-    viewer.setMainQmlFile(QLatin1String("qml/QVideoSymbian/main.qml"));
+    viewer.setMainQmlFile(QLatin1String("qml/Symbian/main.qml"));
     viewer.showExpanded();
 
     return app->exec();

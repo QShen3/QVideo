@@ -56,7 +56,7 @@ ListRect{
     }
     MouseArea{
         anchors.fill: parent;
-        //onClicked: pageStack.push(Qt.resolvedUrl("../Youkuplaypage.qml"),{id:model.tid,title:model.showname,thumurl:model.show_thumburl_hd});
+        onClicked: pageStack.push(Qt.resolvedUrl("../YoukuPlayPage.qml"),{id:model.tid,title:model.showname,thumurl:model.show_thumburl_hd});
     }
 }
 

@@ -28,11 +28,7 @@ function Request(url, method)
                          if (xhr.readyState === XMLHttpRequest.DONE) {
                              if (xhr.status == 200) {
                                  try {
-                                     var resp = qmlApi.jsonParse(xhr.responseText)
-                                     if (resp.code === 200)
-                                         onSuccess(resp);
-                                     else
-                                         onFailure(resp.code)
+                                     onSuccess(xhr.responseText);
                                  }
                                  catch (e) {
                                      onFailure(e.toString());

@@ -6,8 +6,8 @@ QtObject{
 
     function showMessage(msg){
         if (msg||false){
-            infoBanner.text = msg;
-            infoBanner.open();
+            infobanner.text = msg;
+            infobanner.open();
         }
     }
 }

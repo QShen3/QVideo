@@ -42,7 +42,7 @@ MyPage{
             sour: "../../pic/youku_logo.svg";
             MouseArea{
                 anchors.fill: parent;
-                onClicked: pageStack.push(Qt.resolvedUrl("Youkupage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("YoukuPage.qml"))
             }
         }
         Mainbutton{

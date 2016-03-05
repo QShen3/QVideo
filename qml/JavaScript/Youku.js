@@ -15,6 +15,7 @@ function Youku(){
                                   filter: filter
                               });
              request.sendRequest(onSuccess, onFailure);
+             //console.log("here")
          }
 
     this.getDetail = function(id, onSuccess, onFailure){
@@ -108,3 +109,5 @@ function Youku(){
         return ep;
     }
 }
+
+var youku = new Youku();

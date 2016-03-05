@@ -2,7 +2,6 @@
 import QtQuick 1.1
 import com.nokia.symbian 1.1
 import "BaseComponent"
-import "../JavaScript/Request.js" as Request
 MyPage{
     id:youkupage;
     title: qsTr("Youku");
@@ -11,11 +10,6 @@ MyPage{
         id:head;
         titleText: title;
         z:1;
-        Image{
-            anchors.verticalCenter: parent.verticalCenter;
-            anchors.right: parent.right;
-            source: "../pic/youku_logo.svg";
-        }
     }
     tools: ToolBarLayout{
         ToolButton{
@@ -44,7 +38,7 @@ MyPage{
             buttontext: "动漫";
             MouseArea{
                 anchors.fill:parent;
-                onClicked: pageStack.push(Qt.resolvedUrl("Youkulistpage.qml"),{cid:"100"});
+                onClicked: pageStack.push(Qt.resolvedUrl("YoukuListPage.qml"),{cid:"100"});
             }
         }
         Selectbutton{
@@ -52,7 +46,7 @@ MyPage{
             MouseArea
             {
                 anchors.fill:parent;
-                onClicked: pageStack.push(Qt.resolvedUrl("Youkulistpage.qml"),{cid:"96"});
+                onClicked: pageStack.push(Qt.resolvedUrl("YoukuListPage.qml"),{cid:"96"});
             }
         }
         Selectbutton{
@@ -60,7 +54,7 @@ MyPage{
             MouseArea
             {
                 anchors.fill:parent;
-                onClicked: pageStack.push(Qt.resolvedUrl("Youkulistpage.qml"),{cid:"97"});
+                onClicked: pageStack.push(Qt.resolvedUrl("YoukuListPage.qml"),{cid:"97"});
             }
         }
         Selectbutton{
@@ -68,7 +62,7 @@ MyPage{
             MouseArea
             {
                 anchors.fill:parent;
-                onClicked: pageStack.push(Qt.resolvedUrl("Youkulistpage.qml"),{cid:"85"});
+                onClicked: pageStack.push(Qt.resolvedUrl("YoukuListPage.qml"),{cid:"85"});
             }
         }
     }

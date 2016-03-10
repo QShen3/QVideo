@@ -1,2 +1,25 @@
-<RCC/>
-
+<RCC>
+    <qresource prefix="/">
+        <file>qml/pic/close.svg</file>
+        <file>qml/pic/close_inverted.svg</file>
+        <file>qml/pic/Corner-l-b.png</file>
+        <file>qml/pic/Corner-l-t.png</file>
+        <file>qml/pic/Corner-r-b.png</file>
+        <file>qml/pic/Corner-r-t.png</file>
+        <file>qml/pic/Headerbar.svg</file>
+        <file>qml/pic/HeadShadow.png</file>
+        <file>qml/pic/letv_logo.svg</file>
+        <file>qml/pic/main-button.svg</file>
+        <file>qml/pic/PPTV_logo.svg</file>
+        <file>qml/pic/pull_down.svg</file>
+        <file>qml/pic/Qiyi_logo.svg</file>
+        <file>qml/pic/QVideo80.png</file>
+        <file>qml/pic/tudou_logo.svg</file>
+        <file>qml/pic/Winnow_button.svg</file>
+        <file>qml/pic/youku_logo.svg</file>
+        <file>qml/JavaScript/Base64.js</file>
+        <file>qml/JavaScript/PPTVxmlana.js</file>
+        <file>qml/JavaScript/Request.js</file>
+        <file>qml/JavaScript/Youku.js</file>
+    </qresource>
+</RCC>

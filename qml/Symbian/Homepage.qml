@@ -61,7 +61,7 @@ MyPage{
             }
         }
         Mainbutton{
-            sour: "../../pic/QiYi_logo.svg";
+            sour: "../../pic/Qiyi_logo.svg";
         }
         Mainbutton{
             sour: "../../pic/letv_logo.svg";

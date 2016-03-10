@@ -182,6 +182,7 @@ MyPage{
                         text: index+1;
                         onClicked:{
                             epbuttons.selectitem=text;
+                            loadingind.open();
                             switch(eptopbuttons.selectitem){
                             case 1:
                                 //Script.getykplayurl(model.videoid,2);
@@ -244,7 +245,6 @@ MyPage{
         }
     }
     function loadPlayUrl(oritxt){
-        console.log(oritxt)
         var obj = JSON.parse(oritxt);
         if(obj.error.code !== 0){
             loadFail(obj.error);
@@ -255,6 +255,7 @@ MyPage{
             Urls += obj.videoinfo.urls[i];
             Urls += "\n";
         }
+        loadingind.close();
         utility.launchPlayer(Urls);
     }
 

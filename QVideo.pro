@@ -21,6 +21,7 @@ SOURCES += main.cpp \
 RESOURCES += \
     QVideo.qrc
 
+
 TRANSLATIONS += i18n/QVideo_zh.ts
 
 OTHER_FILES += \
@@ -62,8 +63,8 @@ symbian{
     LIBS *= -lremconcoreapi -lremconinterfacebase -lcone -leikcore -lavkon -lapgrfx -lapmime
     MMP_RULES += "OPTION gcce -march=armv6 -mfpu=vfp -mfloat-abi=softfp -marm"
 
-    #RESOURCES += Symbian.qrc
-    DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3
+    RESOURCES += Symbian.qrc
+    #DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()

@@ -3,7 +3,127 @@ Qt.include("Base64.js");
 Qt.include("Request.js");
 
 function Youku(){
+    //new api
+    this.getTag = function(onSuccess, onFailure) {
+             var request = new Request("http://api.mobile.youku.com/layout/android5_0/channel/tags", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d"
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
 
+    this.getSubTabs = function(cid, onSuccess, onFailure) {
+             var request = new Request("http://api.mobile.youku.com/layout/android/channel/subtabs", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  cid: cid
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+
+    this.getFilter = function(cid, onSuccess, onFailure){
+             var request = new Request("http://api.mobile.youku.com/layout/android/channel/filter", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  cid: cid
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getSubPage = function(cid, sub_channel_id, sub_channel_type, filter, ob, pg, onSuccess, onFailure){
+             var request = new Request("http://api.mobile.youku.com/layout/android/channel/subpage", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  cid: cid,
+                                  sub_channel_id: sub_channel_id,
+                                  sub_channel_type: sub_channel_type,
+                                  filter: filter,
+                                  ob: ob,
+                                  pg: pg
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getDetail = function(format, id, onSuccess, onFailure){
+             var request = new Request("http://api.mobile.youku.com/layout/android/channel/detail", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  cid: cid,
+                                  format: format,
+                                  id: id
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getVideos = function(id, fields, pg, pz, onSuccess, onFailure){
+             var request = new Request("http://api.mobile.youku.com/shows/" + id + "/reverse/videos", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  fields: fields,
+                                  pg: pg,
+                                  pz: pz
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getRelate = function(id, pg, pz, onSuccess, onFailure){
+             var request = new Request("http://api.mobile.youku.com/common/shows/relate", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  id: id,
+                                  pg: pg,
+                                  pz: pz
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getComments = function(id, pg, pz, onSuccess, onFailure){
+             var request = new Request("http://user-mobile.youku.com/videos/" + id + "/comments", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  pg: pg,
+                                  pz: pz
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getUserinfo = function(friend, playlist_num, video_num, onSuccess, onFailure){
+             var request = new Request("http://user-mobile.youku.com/user/timeline/userinfo", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  friend: friend,
+                                  playlist_num: playlist_num,
+                                  playlist_order: "published",
+                                  video_num: video_num,
+                                  video_order: "published"
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+    this.getPlayorVideo_list = function(friend, type, pg, pz, onSuccess, onFailure){
+             var request = new Request("http://user-mobile.youku.com/user/timeline/playorvideo/list", "GET");
+             request.setQuery({
+                                  pid: "93dbf376783ed31c",
+                                  guid: "2b53678411eeefc8c9a56960b0896c5d",
+                                  friend: friend,
+                                  type: type,
+                                  pg: pg,
+                                  pz: pz,
+                                  order: "published"
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+
+
+
+
+
+
+
+    //old api
+    /*
     this.getList = function(cid, ob, pg, filter, onSuccess, onFailure){
              var request = new Request("http://api.3g.youku.com/layout/android3_0/item_list", "GET");
              request.setQuery({
@@ -48,7 +168,7 @@ function Youku(){
                               });
              request.sendRequest(onSuccess, onFailure);
          }
-
+*/
     var steam_types = {
         mp4hd3: { 'container': 'flv', 'video_profile': '1080P' },
         hd3: { 'container': 'flv', 'video_profile': '1080P' },

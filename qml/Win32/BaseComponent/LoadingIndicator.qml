@@ -1,13 +1,11 @@
-import QtQuick 1.1
-import com.nokia.symbian 1.1
-Button{
+import QtQuick 2.4
+import Material 0.2
+Item{
     id:loadingind;
     state: "close";
-    platformInverted: true;
-    BusyIndicator{
-        id:indicator
+    anchors.centerIn: parent;
+    ProgressCircle{
         anchors.centerIn: parent;
-        running: parent.state == "open";
     }
     function open(){
         loadingind.state="open";
@@ -29,7 +27,7 @@ Button{
             PropertyChanges{
                 target: loadingind;
                 scale:1;
-                opacity:0.6;
+                opacity:1;
             }
         }
     ]

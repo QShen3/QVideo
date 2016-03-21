@@ -13,10 +13,10 @@ equals(QT_MAJOR_VERSION, 5) {
 INCLUDEPATH += src
 
 HEADERS += \
-          src/utility.h
+    src/Utility.h
 
 SOURCES += main.cpp \
-           src/utility.cpp
+    src/Utility.cpp
 
 RESOURCES += \
     QVideo.qrc
@@ -41,9 +41,13 @@ folder_pic.target = qml
 simulator{
     DEPLOYMENTFOLDERS += folder_js folder_pic
     DEPLOYMENTFOLDERS += folder_symbian3
+    RESOURCES += \
+        Symbian.qrc
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()
+
+    message(Qt Simulator build)
 }
 
 symbian{
@@ -133,3 +137,4 @@ android{
 
     message(Andriod build)
 }
+

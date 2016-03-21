@@ -2,13 +2,13 @@
 import QtQuick 1.1
 
 Image{
-    property string sour;
+    property alias icoUrl: icon.source;
     source: "../../pic/main-button.svg";
     Image{
+        id:icon;
         width: 150;
         height: 75;
         anchors.centerIn: parent;
-        source: parent.sour;
         smooth: true;
     }
 }

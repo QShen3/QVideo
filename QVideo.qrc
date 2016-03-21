@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/pic/close.svg</file>
         <file>qml/pic/close_inverted.svg</file>
         <file>qml/pic/Corner-l-b.png</file>
         <file>qml/pic/Corner-l-t.png</file>

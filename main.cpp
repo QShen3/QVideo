@@ -1,20 +1,47 @@
-#include <QtGui/QApplication>
+#include <QApplication>
+#include <QDebug>
+#include <QTranslator>
+
+#if QT_VERSION < 0x050000
 #include <QtDeclarative>
 #include "qmlapplicationviewer.h"
-#include "utility.h"
+#else
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickView>
+#endif
+
+#include "Utility.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QScopedPointer<QApplication> app(createApplication(argc, argv));
+    QApplication app(argc, argv);
 
-    QmlApplicationViewer viewer;
+    QString locale = QLocale::system().name();
+    QTranslator translator;
+    if(!translator.load(QString("qvideo_") + locale,":/i18n")){
+        qDebug()<<"translator load erro";
+    }
+    app.installTranslator(&translator);
 
     Utility utility;
+
+#if QT_VERSION < 0x050000
+    QmlApplicationViewer viewer;
 
     viewer.rootContext()->setContextProperty("utility", &utility);
 
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
     viewer.showExpanded();
+#else
+    QQmlApplicationEngine engine;
 
-    return app->exec();
+    engine.rootContext()->setContextProperty("utility",&utility);
+#ifdef Q_OS_WIN32
+    engine.load(QUrl(QStringLiteral("qrc:/qml/Win32/main.qml")));
+#endif
+
+#endif
+
+    return app.exec();
 }

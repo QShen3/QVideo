@@ -2,26 +2,25 @@
     <qresource prefix="/" lang="qml">
         <file>qml/Symbian/HomePage.qml</file>
         <file>qml/Symbian/main.qml</file>
-        <file>qml/Symbian/YoukuListPage.qml</file>
-        <file>qml/Symbian/YoukuPage.qml</file>
-        <file>qml/Symbian/YoukuPlayPage.qml</file>
         <file>qml/Symbian/BaseComponent/Corners.qml</file>
-        <file>qml/Symbian/BaseComponent/Dllistdele.qml</file>
-        <file>qml/Symbian/BaseComponent/EpButton.qml</file>
-        <file>qml/Symbian/BaseComponent/Eptopbutton.qml</file>
-        <file>qml/Symbian/BaseComponent/Eptopbuttons.qml</file>
         <file>qml/Symbian/BaseComponent/Head.qml</file>
         <file>qml/Symbian/BaseComponent/ListRect.qml</file>
-        <file>qml/Symbian/BaseComponent/Loadingind.qml</file>
         <file>qml/Symbian/BaseComponent/LoadingIndicator.qml</file>
-        <file>qml/Symbian/BaseComponent/Mainbutton.qml</file>
         <file>qml/Symbian/BaseComponent/MyPage.qml</file>
-        <file>qml/Symbian/BaseComponent/Selectbutton.qml</file>
-        <file>qml/Symbian/BaseComponent/Signalcenter.qml</file>
         <file>qml/Symbian/Delegate/YoukuListDele.qml</file>
         <file>qml/Symbian/Youku/CartoonWinnowDia.qml</file>
         <file>qml/Symbian/Youku/MovieWinnowDia.qml</file>
         <file>qml/Symbian/Youku/TVdramaWinnowDia.qml</file>
         <file>qml/Symbian/Youku/VarietyWinnowDia.qml</file>
+        <file>qml/Symbian/BaseComponent/SignalCenter.qml</file>
+        <file>qml/Symbian/BaseComponent/MainButton.qml</file>
+        <file>qml/Symbian/YoukuPage.qml</file>
+        <file>qml/Symbian/Delegate/TagComponent.qml</file>
+        <file>qml/Symbian/YoukuSubPage.qml</file>
+        <file>qml/Symbian/BaseComponent/SliderView.qml</file>
+        <file>qml/Symbian/Delegate/BoxComponent.qml</file>
+        <file>qml/Symbian/Delegate/SliderComponent.qml</file>
+        <file>qml/pic/Poster_Shadow_01.png</file>
+        <file>qml/pic/Poster_Shadow_03.png</file>
     </qresource>
 </RCC>

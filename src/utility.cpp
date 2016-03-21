@@ -1,4 +1,4 @@
-#include "Utility.h"
+#include "utility.h"
 #include <QDebug>
 #include <QDir>
 #include <QDesktopServices>

@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QTranslator>
 
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
 #include <QtDeclarative>
 #include "qmlapplicationviewer.h"
 #else
@@ -11,7 +11,7 @@
 #include <QQuickView>
 #endif
 
-#include "Utility.h"
+#include "utility.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -26,7 +26,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     Utility utility;
 
-#if QT_VERSION < 0x050000
+#if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QmlApplicationViewer viewer;
 
     viewer.rootContext()->setContextProperty("utility", &utility);

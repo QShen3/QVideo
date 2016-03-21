@@ -15,7 +15,7 @@ $RECYCLE.BIN/
 *.msp
 
 # Qt files
-*.pro.user
+*.pro.user*
 *.sis
 *.deb
 *.pkg
@@ -29,6 +29,7 @@ Makefile
 *.inf
 *.autosave
 moc/
+rcc/
 
 # =========================
 # Operating System Files

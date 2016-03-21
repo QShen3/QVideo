@@ -13,10 +13,10 @@ equals(QT_MAJOR_VERSION, 5) {
 INCLUDEPATH += src
 
 HEADERS += \
-    src/Utility.h
+    src/utility.h
 
 SOURCES += main.cpp \
-    src/Utility.cpp
+    src/utility.cpp
 
 RESOURCES += \
     QVideo.qrc

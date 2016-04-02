@@ -24,7 +24,7 @@ function Youku(){
          }
 
     this.getFilter = function(cid, onSuccess, onFailure){
-             var request = new Request("http://api.mobile.youku.com/layout/android/channel/filter", "GET");
+             var request = new Request("http://api.mobile.youku.com/layout/android3_0/channel/filter", "GET");
              request.setQuery({
                                   pid: "93dbf376783ed31c",
                                   guid: "2b53678411eeefc8c9a56960b0896c5d",
@@ -112,6 +112,15 @@ function Youku(){
                                   pg: pg,
                                   pz: pz,
                                   order: "published"
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+
+    this.getUrls = function(command, onSuccess, onFailure){
+             var request = new Request("http://zccrs.com/", "GET");
+             request.setQuery({
+                                  action: "exec",
+                                  command: command
                               });
              request.sendRequest(onSuccess, onFailure);
          }

@@ -16,4 +16,10 @@ Image{
         font.pixelSize: 21;
         color: "white";
     }
+    MouseArea{
+        anchors.fill: parent;
+        onClicked: {
+            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid});
+        }
+    }
 }

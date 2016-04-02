@@ -68,7 +68,7 @@ symbian{
     MMP_RULES += "OPTION gcce -march=armv6 -mfpu=vfp -mfloat-abi=softfp -marm"
 
     RESOURCES += Symbian.qrc
-    #DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3
+    DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()

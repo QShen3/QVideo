@@ -7,20 +7,22 @@
         <file>qml/Symbian/BaseComponent/ListRect.qml</file>
         <file>qml/Symbian/BaseComponent/LoadingIndicator.qml</file>
         <file>qml/Symbian/BaseComponent/MyPage.qml</file>
-        <file>qml/Symbian/Delegate/YoukuListDele.qml</file>
-        <file>qml/Symbian/Youku/CartoonWinnowDia.qml</file>
-        <file>qml/Symbian/Youku/MovieWinnowDia.qml</file>
-        <file>qml/Symbian/Youku/TVdramaWinnowDia.qml</file>
-        <file>qml/Symbian/Youku/VarietyWinnowDia.qml</file>
         <file>qml/Symbian/BaseComponent/SignalCenter.qml</file>
         <file>qml/Symbian/BaseComponent/MainButton.qml</file>
-        <file>qml/Symbian/YoukuPage.qml</file>
-        <file>qml/Symbian/Delegate/TagComponent.qml</file>
-        <file>qml/Symbian/YoukuSubPage.qml</file>
-        <file>qml/Symbian/BaseComponent/SliderView.qml</file>
-        <file>qml/Symbian/Delegate/BoxComponent.qml</file>
-        <file>qml/Symbian/Delegate/SliderComponent.qml</file>
         <file>qml/pic/Poster_Shadow_01.png</file>
         <file>qml/pic/Poster_Shadow_03.png</file>
+        <file>qml/Symbian/Youku/YoukuPage.qml</file>
+        <file>qml/Symbian/Youku/YoukuSubPage.qml</file>
+        <file>qml/Symbian/Youku/Delegate/BoxComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/FilterComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SliderComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SubPageComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/TagComponent.qml</file>
+        <file>qml/Symbian/Youku/Component/SubPageType1.qml</file>
+        <file>qml/Symbian/Youku/Component/SubPageType4.qml</file>
+        <file>qml/Symbian/BaseComponent/SliderView.qml</file>
+        <file>qml/Symbian/Youku/Dialog/FilterDialog.qml</file>
+        <file>qml/Symbian/Youku/DetailPage.qml</file>
+        <file>qml/Symbian/Youku/Component/VideoPlayer.qml</file>
     </qresource>
 </RCC>

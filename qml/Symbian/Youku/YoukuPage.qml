@@ -1,8 +1,8 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 import com.nokia.symbian 1.1
-import "../JavaScript/Youku.js" as Youku
-import "BaseComponent"
+import "../../JavaScript/Youku.js" as Youku
+import "../BaseComponent"
 import "Delegate"
 
 MyPage{
@@ -18,7 +18,7 @@ MyPage{
                 leftMargin: 12;
             }
             sourceSize: Qt.size(110, 55);
-            source: "../pic/youku_logo.svg";
+            source: "../../pic/youku_logo.svg";
         }
         z:1;
     }
@@ -32,7 +32,7 @@ MyPage{
             platformInverted: true;
         }
         ToolButton{
-            iconSource: "../pic/pull_down.svg";
+            iconSource: "../../pic/pull_down.svg";
             //onClicked: pageStack.push(Qt.resolvedUrl("Downloadpage.qml"))
             platformInverted: true;
         }

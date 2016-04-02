@@ -3,6 +3,7 @@ import QtQuick 1.1
 Rectangle{
     id:root;
     signal clicked;
+    property alias mouseareaenabled: mousearea.enabled
     width: 100;
     height: 62;
     //color: "white";

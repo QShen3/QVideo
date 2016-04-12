@@ -7,7 +7,7 @@ import "Component"
 
 MyPage{
     id: detailpage;
-    property string id;
+    property string id;    
 
     tools: ToolBarLayout{
         ToolButton{
@@ -33,12 +33,15 @@ MyPage{
         width: parent.width;
         height: width / 16 * 9;
 
-        urls: ["file:///E:/Others/[00].mp4", "file:///E:/Others/[01].mp4"];
+        //urls: ["file:///E:/Others/[00].mp4", "file:///E:/Others/[01].mp4"];
         total: 2;
     }
 
     ListModel{
         id: videosmodel;
+    }
+    ListModel{
+        id: urlmodel;
     }
 
     function loadVideos(oritxt){
@@ -48,7 +51,8 @@ MyPage{
             for(var i in obj.results){
                 videosmodel.append(obj.results[i]);
             }
-            var command = "you-get -y localhost:23333 --json http://v.youku.com/v_show/id_" + obj.results[0].videoid + ".html";
+            //var command = "you-get -y localhost:23333 --json http://v.youku.com/v_show/id_" + obj.results[0].videoid + ".html";
+            var command = "you-get --json --format=mp4 http://v.youku.com/v_show/id_" + obj.results[0].videoid + ".html";
             Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
         }
         else{
@@ -57,10 +61,18 @@ MyPage{
     }
 
     function loadUrls(oritxt){
-        console.log(oritxt);
+        //console.log(oritxt);
         var obj = JSON.parse(oritxt);
+        urlmodel.clear();
+        var urls = new Array();
+        for(var i in obj.streams.mp4.src){
+            urlmodel.append({"duration": obj.streams.mp4.pieces[0].segs[i].total_milliseconds_video, "src": obj.streams.mp4.src[i]});
+            urls[i] = obj.streams.mp4.src[i];
+        }
 
-
+        videoplayer.urls = urls;
+        console.log("here");
+        videoplayer.start(0, 0);
     }
 
     function showVideosFailureInfo(error){
@@ -70,7 +82,8 @@ MyPage{
     onVisibleChanged: {
         //console.log(id)
         if(visible){
-            videoplayer.start(0, 0);
+            Youku.youku.getVideos(id, "vid|titl|lim|is_new|pv", "1", "100", loadVideos, showVideosFailureInfo);
+            //videoplayer.start(0, 0);
         }
     }
 

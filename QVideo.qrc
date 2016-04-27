@@ -20,5 +20,6 @@
         <file>qml/JavaScript/PPTVxmlana.js</file>
         <file>qml/JavaScript/Request.js</file>
         <file>qml/JavaScript/Youku.js</file>
+        <file>qml/pic/icon-m-toolbar-next.png</file>
     </qresource>
 </RCC>

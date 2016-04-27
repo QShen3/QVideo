@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-DEFINES += VER=\\\"$$VERSION\\\"
+#DEFINES += VER=\\\"$$VERSION\\\"
 
 equals(QT_MAJOR_VERSION, 4) {
     QT += network
@@ -13,10 +13,12 @@ equals(QT_MAJOR_VERSION, 5) {
 INCLUDEPATH += src
 
 HEADERS += \
-    src/utility.h
+    src/Settings.h \
+    src/Utility.h
 
 SOURCES += main.cpp \
-    src/utility.cpp
+    src/Settings.cpp \
+    src/Utility.cpp
 
 RESOURCES += \
     QVideo.qrc
@@ -51,7 +53,7 @@ simulator{
 }
 
 symbian{
-    CONFIG += qt-components
+    CONFIG += qt-components mobility localize_deployment
 
     VERSION = 0.1.0
     DEFINES += VER=\"$$VERSION\"
@@ -62,10 +64,16 @@ symbian{
     DEPLOYMENT += my_deployment
 
     TARGET.UID3 = 0xE499417E
-    TARGET.CAPABILITY += NetworkServices
+    TARGET.CAPABILITY += NetworkServices \
+        ReadDeviceData \
+        WriteDeviceData \
+        SwEvent
 
-    LIBS *= -lremconcoreapi -lremconinterfacebase -lcone -leikcore -lavkon -lapgrfx -lapmime
+    MOBILITY += multimedia systeminfo
+
+    LIBS += -lremconcoreapi -lremconinterfacebase -lcone -leikcore -lavkon -lapgrfx -lapmime -lgslauncher
     MMP_RULES += "OPTION gcce -march=armv6 -mfpu=vfp -mfloat-abi=softfp -marm"
+    MMP_RULES += "EPOCPROCESSPRIORITY windowserver"
 
     RESOURCES += Symbian.qrc
     DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3

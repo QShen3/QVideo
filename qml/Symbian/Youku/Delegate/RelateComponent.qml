@@ -4,24 +4,23 @@ import "../../BaseComponent"
 
 ListRect{
     width: 120;
-    height: trumble.height + 48;
+    height: trumble.height + 36;
     Image{
         id: trumble;
         anchors.horizontalCenter: parent.horizontalCenter
         width: 118;
         //height: 178 / sourceSize.width * sourceSize.height;
         height: 100;
-        smooth: true;
-        source: img;
+        source: model.show_vthumburl;
         Text{
             anchors{
                 left: parent.left;
                 bottom: parent.bottom;
                 margins: 4;
             }
-            text: model.stripe;
+            text: model.stripe_bottom_fmt;
             color: "white";
-            font.pixelSize: 15;
+            font.pixelSize: 10;
             //Component.onCompleted: console.log(font.pixelSize)
         }
         onStatusChanged: {
@@ -37,24 +36,16 @@ ListRect{
             margins: 6;
         }
         Text{
-            width: 108;
-            clip: true;
             text: model.title;
-            font.pixelSize: 15;
+            font.pixelSize: 10;
         }
         Text{
-            width: 108;
-            clip: true;
-            text: model.subtitle;
+            text: model.total_vv_fmt;
             color: "gray";
-            font.pixelSize: 12;
+            font.pixelSize: 8;
         }
     }
     onClicked: {
-        if(model.is_vv === 1){
-            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title, currentVideoId: model.tid});
-        }
-        else
-            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title});
+        pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.showid, title: model.title});
     }
 }

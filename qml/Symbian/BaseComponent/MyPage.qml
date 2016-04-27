@@ -5,4 +5,6 @@ Page{
     property string title: "";
 
     orientationLock: PageOrientation.LockPortrait;
+
+
 }

@@ -7,6 +7,14 @@ Rectangle{
     width: 360;
     height: 45 + cell.height;
     color: "#f5f5f5";
+    Image{
+        anchors.bottom: parent.top;
+        width: parent.width;
+        rotation: 180;
+        source: "../../../pic/HeadShadow.png";
+        opacity: 0.1;
+    }
+
     Row{
         id: title;
         spacing: 12;
@@ -17,7 +25,7 @@ Rectangle{
         }
         Text {
             text: model.title;
-            font.pixelSize: 18
+            font.pixelSize: 21
             anchors.verticalCenter: parent.verticalCenter;
         }
     }
@@ -67,17 +75,25 @@ Rectangle{
                                 margins: 9;
                             }
                             Text{
+                                width: 162;
+                                clip: true;
                                 text: model.title;
                                 font.pixelSize: 15;
                             }
                             Text{
+                                width: 162;
+                                clip: true;
                                 text: model.subtitle;
                                 color: "gray";
                                 font.pixelSize: 12
                             }
                         }
                         onClicked: {
-                            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid});
+                            if(model.is_vv === 1){
+                                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title, currentVideoId: model.tid});
+                            }
+                            else
+                                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title});
                         }
                     }
                 }

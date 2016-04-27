@@ -3,6 +3,7 @@ QtObject{
 
     function showMessage(msg){
         if (msg||false){
+            console.log(msg)
             infobanner.text = msg;
             infobanner.open();
         }

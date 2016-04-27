@@ -29,9 +29,10 @@ CommonDialog{
                         verticalCenter: parent.verticalCenter;
                     }
                     color: "#1056dd";
-                    text: sortmodel.get(0).title;
+                    //text: sortmodel.get(0).title;
                 }
                 Flickable{
+                    id: flicker;
                     anchors{
                         left: sorttitle.right;
                         right: parent.right;
@@ -45,10 +46,10 @@ CommonDialog{
                     Row{
                         id: sortrow;
                         anchors.verticalCenter: parent.verticalCenter;
-                        spacing: 10;
+                        //spacing: 10;
                         Repeater{
                             model: sortmodel;
-                            Text{
+                            /*Text{
                                 text: model.title;
                                 MouseArea{
                                     anchors.fill: parent;
@@ -57,15 +58,34 @@ CommonDialog{
                                         ob = model.value;
                                     }
                                 }
+                            }*/
+                            ToolButton{
+                                text: model.title;
+                                flat: true;
+                                platformInverted: true;
+                                onClicked: {
+                                    sorttitle.text = model.title;
+                                    ob = model.value;
+                                }
+                                Component.onCompleted: {
+                                    if(index === 0){
+                                        sorttitle.text = model.title;
+                                    }
+                                }
                             }
                         }
                     }
+                }
+                ScrollDecorator{
+                    flickableItem: flicker;
+                    platformInverted: true;
                 }
             }
         }
     }
     onButtonClicked: {
         if(index === 0){
+            filterString = "";
             for(var i in filter){
                 if(i === 0){
                     filterString += (filter[i].cat + ":" + filter[i].value);
@@ -76,6 +96,7 @@ CommonDialog{
             }
             pg = 1;
             Youku.youku.getSubPage(cid, sub_channel_id, sub_channel_type, filterString, ob, 1, loadsubpage, showSubPageFailureInfo);
+            subpageind.open();
         }
     }
 }

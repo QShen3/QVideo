@@ -1,4 +1,5 @@
 import QtQuick 1.1
+import com.nokia.symbian 1.1
 import "../../BaseComponent"
 import "../Delegate"
 Component{
@@ -7,6 +8,7 @@ Component{
         width: 360;
         height: youkusubpage.height - head.height;
         Flickable{
+            id: flicker;
             anchors.fill: parent;
             flickableDirection: Flickable.VerticalFlick;
             contentHeight: type1column.height;
@@ -16,7 +18,7 @@ Component{
                 spacing: 9;
                 SliderView{
                     width: 360;
-                    height: 234;
+                    height: 202.5;
                     model: slidermodel;
                     visible: slidermodel.count > 0;
                     Image{
@@ -24,16 +26,15 @@ Component{
                         source: "../../../pic/Poster_Shadow_01.png";
                         z: 2;
                     }
-                    Image{
+                    /*Image{
                         anchors.bottom: parent.bottom;
                         source: "../../../pic/Poster_Shadow_03.png";
                         z: 2;
-                    }
+                    }*/
                     Image{
                         anchors.top: parent.bottom;
                         source: "../../../pic/HeadShadow.png"
                     }
-
                     delegate: SliderComponent{
 
                     }
@@ -44,6 +45,10 @@ Component{
                     delegate: BoxComponent{}
                 }
             }
+        }
+        ScrollDecorator{
+            flickableItem: flicker;
+            platformInverted: true;
         }
     }
 }

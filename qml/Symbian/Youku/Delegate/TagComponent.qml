@@ -5,10 +5,10 @@ import "../../BaseComponent"
 ListRect{
     id: root;
     width: 120;
-    height: 180;
+    height: 165;
     Column{
         anchors.centerIn: parent;
-        spacing: 30;
+        spacing: 24;
         Image{
             anchors.horizontalCenter: parent.horizontalCenter;
             height: 70;

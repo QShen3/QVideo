@@ -11,8 +11,6 @@
         <file>qml/Symbian/BaseComponent/MainButton.qml</file>
         <file>qml/pic/Poster_Shadow_01.png</file>
         <file>qml/pic/Poster_Shadow_03.png</file>
-        <file>qml/Symbian/Youku/YoukuPage.qml</file>
-        <file>qml/Symbian/Youku/YoukuSubPage.qml</file>
         <file>qml/Symbian/Youku/Delegate/BoxComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/FilterComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/SliderComponent.qml</file>
@@ -24,5 +22,17 @@
         <file>qml/Symbian/Youku/Dialog/FilterDialog.qml</file>
         <file>qml/Symbian/Youku/DetailPage.qml</file>
         <file>qml/Symbian/Youku/Component/VideoPlayer.qml</file>
+        <file>qml/Symbian/BaseComponent/MyListItem.qml</file>
+        <file>qml/Symbian/Youku/Delegate/EpisodeComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/RelateComponent.qml</file>
+        <file>qml/Symbian/Youku/MainPage.qml</file>
+        <file>qml/Symbian/Youku/SubPage.qml</file>
+        <file>qml/pic/Toolbar.svg</file>
+        <file>qml/Symbian/BaseComponent/MyToolBarLayout.qml</file>
+        <file>qml/Symbian/SettingPage.qml</file>
+        <file>qml/pic/FullScreen.svg</file>
+        <file>qml/pic/miniScreen.svg</file>
+        <file>qml/Symbian/BaseComponent/VolumeIndicator.qml</file>
+        <file>qml/pic/volume.svg</file>
     </qresource>
 </RCC>

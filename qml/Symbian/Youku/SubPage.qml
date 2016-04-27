@@ -19,6 +19,7 @@ MyPage{
     property int pg: 1;
     Head{
         id:head;
+        color: "#06a7e1";
         titleText: title;
         z:1;
         Row{
@@ -51,10 +52,8 @@ MyPage{
                 anchors.verticalCenter: parent.verticalCenter;
             }
         }
-
-
     }
-    tools: ToolBarLayout{
+    tools: MyToolBarLayout{
         ToolButton{
             iconSource: "toolbar-back";
             onClicked:{
@@ -62,11 +61,16 @@ MyPage{
             }
             platformInverted: true;
         }
-        ToolButton{
+        /*ToolButton{
             iconSource: "../../pic/pull_down.svg";
             //onClicked: pageStack.push(Qt.resolvedUrl("Downloadpage.qml"))
             platformInverted: true;
+        }*/
+        ToolButton{
+            iconSource: "toolbar-search";
+            platformInverted: true;
         }
+
         ToolButton{
             iconSource: "toolbar-settings"
             platformInverted: true;
@@ -137,9 +141,11 @@ MyPage{
             bottom: subpage.bottom;
             margins: 30;
         }
+        width: 45;
+        height: 45;
         platformInverted: true;
         opacity: 0.8;
-        //iconSource: "toolbar-menu";
+        iconSource: privateStyle.imagePath("toolbar-menu");
         visible: filtermodel.count!=0 && sortmodel.count!=0;
         onClicked: {
             filterdialog.open();
@@ -275,6 +281,7 @@ MyPage{
 
         if(obj.results.length === 0){
             signalcenter.showMessage(qsTr("No more avaliable!"));
+            subpageind.close();
             pg--;
             return;
         }

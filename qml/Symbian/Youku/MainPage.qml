@@ -11,6 +11,7 @@ MyPage{
 
     Head{
         id:head;
+        color: "#06a7e1";
         Image{
             anchors{
                 verticalCenter: parent.verticalCenter;
@@ -23,7 +24,7 @@ MyPage{
         z:1;
     }
 
-    tools: ToolBarLayout{
+    tools: MyToolBarLayout{
         ToolButton{
             iconSource: "toolbar-back";
             onClicked:{
@@ -31,11 +32,11 @@ MyPage{
             }
             platformInverted: true;
         }
-        ToolButton{
+        /*ToolButton{
             iconSource: "../../pic/pull_down.svg";
             //onClicked: pageStack.push(Qt.resolvedUrl("Downloadpage.qml"))
             platformInverted: true;
-        }
+        }*/
         ToolButton{
             iconSource: "toolbar-settings"
             platformInverted: true;
@@ -43,17 +44,18 @@ MyPage{
     }
 
     GridView{
+        id: gridview;
         anchors{
             fill: parent;
             topMargin: head.height;
         }
         clip: true;
-        cellHeight: 180;
+        cellHeight: 165;
         cellWidth: 120;
         model: tagmodel;
         delegate: TagComponent{
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("YoukuSubPage.qml"),
+                pageStack.push(Qt.resolvedUrl("SubPage.qml"),
                                {title: model.title, cid: model.channel_id});
             }
         }
@@ -62,6 +64,11 @@ MyPage{
             anchors.centerIn: parent;
         }
     }
+    ScrollDecorator{
+        flickableItem: gridview;
+        platformInverted: true;
+    }
+
 
     ListModel{
         id: tagmodel;
@@ -86,8 +93,7 @@ MyPage{
             if((obj.channels[i].type === 0) && (obj.channels[i].tags.length > 0)){
 
                 for(var j in obj.channels[i].tags){
-                    if(obj.channels[i].tags[j].jump_type === 2){
-
+                    if(obj.channels[i].tags[j].jump_type === 2 && obj.channels[i].tags[j].channel_id !== 1001 && obj.channels[i].tags[j].channel_id !== 1002){
                         tagmodel.append(obj.channels[i].tags[j]);
                     }
                 }

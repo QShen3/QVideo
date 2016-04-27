@@ -5,9 +5,10 @@ PathView{
     id:cover;
     //height: 170;
     //width: 360;
-    clip: true;
+    //clip: true;
     preferredHighlightBegin: 0.5;
     preferredHighlightEnd: 0.5;
+    highlightMoveDuration: 200;
     path: Path{
         startX: -cover.width*cover.count/2+cover.width/2;
         startY: cover.height/2;
@@ -20,6 +21,6 @@ PathView{
         running: cover.visible && cover.count>0 && !cover.moving;
         interval: 3000;
         repeat: true;
-        onTriggered: cover.incrementCurrentIndex;
+        onTriggered: cover.incrementCurrentIndex();
     }
 }

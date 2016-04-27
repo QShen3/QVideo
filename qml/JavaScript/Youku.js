@@ -47,27 +47,36 @@ function Youku(){
              request.sendRequest(onSuccess, onFailure);
          }
     this.getDetail = function(format, id, onSuccess, onFailure){
-             var request = new Request("http://api.mobile.youku.com/layout/android/channel/detail", "GET");
+             var request = new Request("http://api.mobile.youku.com/layout/android5_0/play/detail", "GET");
              request.setQuery({
                                   pid: "93dbf376783ed31c",
                                   guid: "2b53678411eeefc8c9a56960b0896c5d",
-                                  cid: cid,
                                   format: format,
                                   id: id
                               });
              request.sendRequest(onSuccess, onFailure);
          }
-    this.getVideos = function(id, fields, pg, pz, onSuccess, onFailure){
+    this.getVideos = function(id, fields, order, pg, pz, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/shows/" + id + "/reverse/videos", "GET");
              request.setQuery({
                                   pid: "93dbf376783ed31c",
                                   guid: "2b53678411eeefc8c9a56960b0896c5d",
                                   fields: fields,
+                                  order: order,
                                   pg: pg,
                                   pz: pz
                               });
              request.sendRequest(onSuccess, onFailure);
          }
+    this.getPlay = function(vid, onSuccess, onFailure){
+             var request = new Request("http://play.youku.com/play/get.json", "GET");
+             request.setQuery({
+                                  vid: vid,
+                                  ct: "10"
+                              });
+             request.sendRequest(onSuccess, onFailure);
+         }
+
     this.getRelate = function(id, pg, pz, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/common/shows/relate", "GET");
              request.setQuery({

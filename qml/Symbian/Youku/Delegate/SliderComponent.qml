@@ -4,8 +4,12 @@ import QtQuick 1.1
 Image{
     width: 360;
     //height: 234;
-    height: 360 / sourceSize.width * sourceSize.height;
+    //height: 360 / sourceSize.width * sourceSize.height;
+    height: 202.5;
+    //sourceSize: Qt.size(360, 202.5);
     source: model.img;
+    clip: true;
+    fillMode: Image.PreserveAspectCrop;
     Text{
         anchors{
             left: parent.left;
@@ -19,7 +23,11 @@ Image{
     MouseArea{
         anchors.fill: parent;
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid});
+            if(model.is_vv === 1){
+                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title, currentVideoId: model.tid});
+            }
+            else
+                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title});
         }
     }
 }

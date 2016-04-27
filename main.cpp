@@ -11,10 +11,14 @@
 #include <QQuickView>
 #endif
 
-#include "utility.h"
+#include "Utility.h"
+#include "Settings.h"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
+#ifdef Q_OS_SYMBIAN
+    QApplication::setAttribute((Qt::ApplicationAttribute)11);   //Qt::AA_CaptureMultimediaKeys
+#endif
     QApplication app(argc, argv);
 
     QString locale = QLocale::system().name();
@@ -25,13 +29,19 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     app.installTranslator(&translator);
 
     Utility utility;
+    Settings settings;
 
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QmlApplicationViewer viewer;
 
     viewer.rootContext()->setContextProperty("utility", &utility);
+    viewer.rootContext()->setContextProperty("settings", &settings);
 
+#ifdef Q_OS_SYMBIAN
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
+#elif defined(Q_WS_SIMULATOR)
+    viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
+#endif
     viewer.showExpanded();
 #else
     QQmlApplicationEngine engine;

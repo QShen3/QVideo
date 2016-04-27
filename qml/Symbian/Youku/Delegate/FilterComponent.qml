@@ -18,6 +18,7 @@ Item{
         text: model.items.get(0).title;
     }
     Flickable{
+        id: flicker;
         anchors{
             left: titletext.right;
             right: parent.right;
@@ -31,10 +32,10 @@ Item{
         Row{
             id: filterrow;
             anchors.verticalCenter: parent.verticalCenter;
-            spacing: 10;
+            //spacing: 10;
             Repeater{
                 model: items;
-                Text{
+                /*Text{
                     text: model.title;
                     MouseArea{
                         anchors.fill: parent;
@@ -46,8 +47,23 @@ Item{
                             //console.log(filter[myIndex].value);
                         }
                     }
+                }*/
+                ToolButton{
+                    text: model.title;
+                    flat: true;
+                    platformInverted: true;
+                    onClicked: {
+                        titletext.text = model.title;
+                        var temp = filter;
+                        temp[myIndex].value = model.value;
+                        filter = temp;
+                    }
                 }
             }
         }
+    }
+    ScrollDecorator{
+        flickableItem: flicker;
+        platformInverted: true;
     }
 }

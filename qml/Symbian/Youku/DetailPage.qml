@@ -45,7 +45,7 @@ MyPage{
     }
 
     VideoPlayer{
-    //Rectangle{
+        //Rectangle{
         id: videoplayer;
         //anchors.horizontalCenter: parent.horizontalCenter;
         width: parent.width;
@@ -149,7 +149,7 @@ MyPage{
                     height: 60;
                     orientation: ListView.Horizontal;
                     model: videosmodel;
-                    delegate: EpisodeComponent{}                   
+                    delegate: EpisodeComponent{}
                 }
             }
             MyListItem{
@@ -336,7 +336,34 @@ MyPage{
             }
         }
 
-
+        if(settings.autoPlay){
+            if(settings.preferFormat == "mp4"){
+                for(var i=0; i<streammodel.count; i++){
+                    if(streammodel.get(i).flag === "mp4"){
+                        var command = "you-get --json --format=" + streammodel.get(i).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                        break;
+                    }
+                }
+                if(i == streammodel.count){
+                    var command = "you-get --json --format=" + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                }
+            }
+            else{
+                for(var i=0; i<streammodel.count; i++){
+                    if(streammodel.get(i).flag === "flvhd"){
+                        var command = "you-get --json --format=" + streammodel.get(i).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                        break;
+                    }
+                }
+                if(i == streammodel.count){
+                    var command = "you-get --json --format=" + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                }
+            }
+        }
     }
 
     function loadUrls(oritxt){

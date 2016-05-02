@@ -17,6 +17,8 @@ Item{
     property int currentMilliseconds: 0;
     property int position: 0;
 
+    property ListModel streamModel;
+
     clip: true;
 
     states: [
@@ -286,6 +288,19 @@ Item{
                 font.pixelSize: 15;
                 visible: root.state == "FullScreen";
                 text: milliSecondsToString(totalMilliseconds);
+            }
+
+            ToolButton{
+                id: streambutton;
+                //property string currentStream: "";
+                anchors{
+                    right: screenbutton.left;
+                    rightMargin: root.state == "" ? 3 : 9;
+                    verticalCenter: parent.verticalCenter;
+                }
+                platformInverted: true;
+                flat: true;
+                text: currentFormat == "mp4" ? qsTr("High quality") : qsTr("General quality");
             }
 
             ToolButton{

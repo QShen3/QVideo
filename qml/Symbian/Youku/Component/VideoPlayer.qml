@@ -3,6 +3,7 @@ import QtQuick 1.1
 import QtMultimediaKit 1.1
 import QtMobility.systeminfo 1.1
 import com.nokia.symbian 1.1
+import "../../../JavaScript/Youku.js" as Youku
 Item{
     id: root;
     width: 360;
@@ -16,6 +17,9 @@ Item{
     property int totalMilliseconds: 0;
     property int currentMilliseconds: 0;
     property int position: 0;
+
+    property bool changeFlag: false;
+    property bool isNewVideo: true;
 
     property ListModel streamModel;
 
@@ -78,10 +82,10 @@ Item{
         volume: volumeIndicator.volume / 100;
         onStatusChanged: {
             videoStatusDebug(status)
-            if(status == Video.EndOfMedia){                
+            if(status == Video.EndOfMedia){
                 //stop();
                 console.log(index + " || " + total);
-                currentMilliseconds += segs[index].total_milliseconds_video;
+                currentMilliseconds += parseInt(segs[index].total_milliseconds_video);
                 index++;
                 if(index != total){
                     source = urls[index];
@@ -92,7 +96,12 @@ Item{
                     root.stop();
                 }
             }
-
+            /*else if(status == 6){
+                if(changeFlag){
+                    video.position = root.position;
+                    changeFlag = false;
+                }
+            }*/
         }
         onError: {
             videoErrorDebug(error);
@@ -102,6 +111,8 @@ Item{
         }
         onStarted: {
             screenSaver.setScreenSaverDelayed(true);
+            //console.log("start")
+            root.rotation ++;
             adjustScreen.start();
         }
         onStopped: {
@@ -145,8 +156,8 @@ Item{
             onReleased: {
                 if((mouse.x - pressedX) < -180){
                     if(video.hasVideo){
-                        if(video.position > 5000){
-                            video.position -= 5000;
+                        if(video.position > 10000){
+                            video.position -= 10000;
                         }
                         else if(index > 0){
                             index--;
@@ -159,6 +170,7 @@ Item{
                 else if((mouse.x - pressedX) > 180){
                     if(video.hasVideo){
                         video.position += 5000;
+                        //video.position += 330000;
                     }
                 }
 
@@ -265,7 +277,7 @@ Item{
                 anchors {
                     left: controlbuttons.right;
                     leftMargin: root.state == "" ? 3 : 9;
-                    right: screenbutton.left;
+                    right: propertybuttons.left;
                     rightMargin: root.state == "" ? 3 : 9;
                     verticalCenter: parent.verticalCenter;
                 }
@@ -290,38 +302,68 @@ Item{
                 text: milliSecondsToString(totalMilliseconds);
             }
 
-            ToolButton{
-                id: streambutton;
-                //property string currentStream: "";
-                anchors{
-                    right: screenbutton.left;
-                    rightMargin: root.state == "" ? 3 : 9;
-                    verticalCenter: parent.verticalCenter;
-                }
-                platformInverted: true;
-                flat: true;
-                text: currentFormat == "mp4" ? qsTr("High quality") : qsTr("General quality");
-            }
-
-            ToolButton{
-                id: screenbutton;
+            Row{
+                id: propertybuttons
                 anchors{
                     right: parent.right;
                     rightMargin: root.state == "" ? 3 : 9;
                     verticalCenter: parent.verticalCenter;
                 }
-                platformInverted: true;
-                flat: true;
-                iconSource: root.state == "" ? "../../../pic/FullScreen.svg" : "../../../pic/miniScreen.svg";
-                //onClicked: root.state == "" ? root.state = "FullScreen" : root.state = "";
-                onClicked: {
-                    if(root.state == ""){
-                        root.state = "FullScreen";
-                        volumeIndicator.rotation = 90;
+                spacing: 9;
+                ToolButton{
+                    id: streambutton;
+                    anchors.verticalCenter: parent.verticalCenter;
+                    platformInverted: true;
+                    flat: true;
+                    visible: root.state == "FullScreen";
+                    text: (currentFormat == "mp4" || currentFormat == "mp4hd")? qsTr("High quality") : qsTr("General quality");
+                    onClicked: {
+                        streammenu.open();
                     }
-                    else{
-                        root.state = "";
-                        volumeIndicator.rotation = 0;
+                }
+
+                ToolButton{
+                    id: screenbutton;
+                    anchors.verticalCenter: parent.verticalCenter;
+                    platformInverted: true;
+                    flat: true;
+                    iconSource: root.state == "" ? "../../../pic/FullScreen.svg" : "../../../pic/miniScreen.svg";
+                    //onClicked: root.state == "" ? root.state = "FullScreen" : root.state = "";
+                    onClicked: {
+                        if(root.state == ""){
+                            root.state = "FullScreen";
+                            volumeIndicator.rotation = 90;
+                        }
+                        else{
+                            root.state = "";
+                            volumeIndicator.rotation = 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    ContextMenu{
+        id: streammenu;
+        rotation: 90;
+        platformInverted: true;
+        //content.rotation: 90;
+        MenuLayout{
+            //rotation: 90;
+            Repeater{
+                model: streammodel;
+                MenuItem{
+                    platformInverted: true;
+                    text: model.video_profile;
+                    onClicked: {
+                        var command = "get-video " + model.stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        if(currentFormat !== model.stream_type){
+                            currentFormat = model.stream_type;
+                            isNewVideo = false;
+                            Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                        }
+                        streammenu.close();
                     }
                 }
             }
@@ -331,16 +373,32 @@ Item{
 
     Timer{
         id: adjustScreen;
-        interval: 500;
+        interval: 300;
         onTriggered: {
-            console.log("adjust");
-            rotation++;
-            rotation--;
+            if(root.state == "FullScreen"){
+                root.rotation = 90;
+            }
+            else{
+                root.rotation = 0;
+            }
         }
     }
 
+    Keys.onVolumeUpPressed: {
+        volumeIndicator.volumeUp()
+    }
+    Keys.onVolumeDownPressed: volumeIndicator.volumeDown()
+    Keys.onUpPressed: volumeIndicator.volumeUp()
+    Keys.onDownPressed: volumeIndicator.volumeDown()
+
     function setVideos(urls, segs){
-        currentMilliseconds = currentMilliseconds + video.position;
+        if(isNewVideo){
+            currentMilliseconds = currentMilliseconds + video.position;
+        }
+        else{
+            currentMilliseconds = 0;
+        }
+
         video.stop();
         root.total = segs.length;
         root.urls = urls;
@@ -361,6 +419,8 @@ Item{
                 if(temp - parseInt(segs[i].total_milliseconds_video) < 0){
                     index = i;
                     position = temp;
+                    currentMilliseconds = currentMilliseconds - position;
+                    position = 0;
                     break;
                 }
                 else{
@@ -370,6 +430,10 @@ Item{
         }
         video.source = urls[index];
         video.play();
+        /*if(position != 0){
+            changeFlag = true;
+        }*/
+
     }
 
     function pause(){
@@ -377,6 +441,7 @@ Item{
     }
     function stop(){
         index = 0;
+        currentMilliseconds = 0;
         video.stop();
     }
 

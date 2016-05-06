@@ -59,7 +59,7 @@ MyPage{
             MenuItem{
                 text: qsTr("General quality");
                 platformInverted: true;
-                onClicked: settings.preferFormat = "flvhd";
+                onClicked: settings.preferFormat = "3gphd";
             }
         }
     }

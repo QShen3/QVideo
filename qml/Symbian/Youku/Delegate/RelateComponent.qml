@@ -4,13 +4,14 @@ import "../../BaseComponent"
 
 ListRect{
     width: 120;
-    height: trumble.height + 36;
+    height: trumble.height + 48;
     Image{
         id: trumble;
         anchors.horizontalCenter: parent.horizontalCenter
         width: 118;
         //height: 178 / sourceSize.width * sourceSize.height;
         height: 100;
+        smooth: true;
         source: model.show_vthumburl;
         Text{
             anchors{
@@ -20,7 +21,7 @@ ListRect{
             }
             text: model.stripe_bottom_fmt;
             color: "white";
-            font.pixelSize: 10;
+            font.pixelSize: 15;
             //Component.onCompleted: console.log(font.pixelSize)
         }
         onStatusChanged: {
@@ -36,16 +37,21 @@ ListRect{
             margins: 6;
         }
         Text{
+            width: 108;
+            clip: true;
             text: model.title;
-            font.pixelSize: 10;
+            font.pixelSize: 15;
         }
         Text{
+            width: 108;
+            clip: true;
             text: model.total_vv_fmt;
             color: "gray";
-            font.pixelSize: 8;
+            font.pixelSize: 12;
         }
     }
     onClicked: {
+        videoplayer.stop();
         pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.showid, title: model.title});
     }
 }

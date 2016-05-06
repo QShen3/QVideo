@@ -9,6 +9,7 @@ import "Delegate"
 MyPage{
     id: detailpage;
     property bool isLoaded: false;
+    property bool firstStart: true;
 
     property string id;
     property string userName;
@@ -23,6 +24,7 @@ MyPage{
     property string currentVideoId: "";
     property string currentFormat: "";
 
+    property int episodePage: 1;
 
     tools: MyToolBarLayout{
         ToolButton{
@@ -101,6 +103,10 @@ MyPage{
                         source: "../../pic/icon-m-toolbar-next.png";
                     }
                 }
+                onClicked: {
+                    loader.source = "DetailPage/VideoInfo.qml";
+                    loader.state = "open";
+                }
             }
             MyListItem{
                 height: 105;
@@ -150,6 +156,10 @@ MyPage{
                     orientation: ListView.Horizontal;
                     model: videosmodel;
                     delegate: EpisodeComponent{}
+                }
+                onClicked: {
+                    loader.source = "DetailPage/EpisodeList.qml";
+                    loader.state = "open";
                 }
             }
             MyListItem{
@@ -248,12 +258,24 @@ MyPage{
                 }
             }
         ]
+        transitions: [
+            Transition {
+                NumberAnimation{
+                    properties: "anchors.leftMargin";
+                    easing.type: Easing.OutCubic;
+                }
+            }
+        ]
     }
 
 
     ListModel{
         id: videosmodel;
     }
+    ListModel{
+        id: fullvideomodel;
+    }
+
     ListModel{
         id: streammodel;
     }
@@ -310,7 +332,7 @@ MyPage{
     }
 
     function loadStreams(oritxt){
-        console.log(oritxt);
+        //console.log(oritxt);
         var obj = JSON.parse(oritxt);
 
         if(obj.e.code !== 0){
@@ -320,46 +342,84 @@ MyPage{
 
         streammodel.clear();
         for(var i in obj.data.stream){
-            if(obj.data.stream[i].stream_type === "flvhd" || obj.data.stream[i].stream_type === "flv" || obj.data.stream[i].stream_type === "3gphd"){
+            if(obj.data.stream[i].stream_type === "3gphd"){
                 streammodel.append({
-                                       "stream_type": obj.data.stream[i].stream_type,
+                                       "stream_type": "3gphd",
                                        "video_profile": qsTr("General quality"),
-                                       "flag": "flvhd"
                                    })
             }
             else if(obj.data.stream[i].stream_type === "mp4" || obj.data.stream[i].stream_type === "mp4hd"){
                 streammodel.append({
-                                       "stream_type": obj.data.stream[i].stream_type,
+                                       "stream_type": "mp4",
                                        "video_profile": qsTr("High quality"),
-                                       "flag": "mp4"
                                    })
             }
         }
 
-        if(settings.autoPlay){
+
+        if(firstStart){
+            if(settings.autoPlay){
+                if(settings.preferFormat == "mp4"){
+                    for(var i=0; i<streammodel.count; i++){
+                        if(streammodel.get(i).stream_type === "mp4"){
+                            var command = "get-video " + "mp4" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                            currentFormat = "mp4";
+                            Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                            break;
+                        }
+                    }
+                    if(i == streammodel.count){
+                        var command = "get-video " + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        currentFormat = streammodel.get(0).stream_type;
+                        Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                    }
+                }
+                else{
+                    for(var i=0; i<streammodel.count; i++){
+                        if(streammodel.get(i).stream_type === "3gphd"){
+                            var command = "get-video " + "3gphd" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                            currentFormat = "3gphd";
+                            Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                            break;
+                        }
+                    }
+                    if(i == streammodel.count){
+                        var command = "get-video " + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        currentFormat = streammodel.get(0).stream_type;
+                        Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                    }
+                }
+            }
+            firstStart = false;
+        }
+        else{
             if(settings.preferFormat == "mp4"){
                 for(var i=0; i<streammodel.count; i++){
-                    if(streammodel.get(i).flag === "mp4"){
-                        var command = "you-get --json --format=" + streammodel.get(i).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    if(streammodel.get(i).stream_type === "mp4"){
+                        var command = "get-video " + "mp4" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        currentFormat = "mp4";
                         Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                         break;
                     }
                 }
                 if(i == streammodel.count){
-                    var command = "you-get --json --format=" + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    var command = "get-video " + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    currentFormat = streammodel.get(0).stream_type;
                     Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                 }
             }
             else{
                 for(var i=0; i<streammodel.count; i++){
-                    if(streammodel.get(i).flag === "flvhd"){
-                        var command = "you-get --json --format=" + streammodel.get(i).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    if(streammodel.get(i).stream_type === "3gphd"){
+                        var command = "get-video " + "3gphd" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                        currentFormat = "3gphd";
                         Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                         break;
                     }
                 }
                 if(i == streammodel.count){
-                    var command = "you-get --json --format=" + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    var command = "get-video " + streammodel.get(0).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    currentFormat = streammodel.get(0).stream_type;
                     Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                 }
             }
@@ -367,10 +427,9 @@ MyPage{
     }
 
     function loadUrls(oritxt){
-        //console.log(oritxt);
         var obj = JSON.parse(oritxt);
+        videoplayer.setVideos(obj.streams[currentFormat].src, obj.streams.mp4.pieces[0].segs, true);
 
-        videoplayer.setVideos(obj.streams.mp4.src, obj.streams.mp4.pieces[0].segs);
         videoplayer.start();
     }
 

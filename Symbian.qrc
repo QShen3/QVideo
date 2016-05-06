@@ -34,5 +34,7 @@
         <file>qml/pic/miniScreen.svg</file>
         <file>qml/Symbian/BaseComponent/VolumeIndicator.qml</file>
         <file>qml/pic/volume.svg</file>
+        <file>qml/Symbian/Youku/DetailPage/VideoInfo.qml</file>
+        <file>qml/Symbian/Youku/DetailPage/EpisodeList.qml</file>
     </qresource>
 </RCC>

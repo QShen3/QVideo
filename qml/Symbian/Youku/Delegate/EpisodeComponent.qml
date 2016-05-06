@@ -1,6 +1,6 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
-
+import "../../../JavaScript/Youku.js" as Youku
 Item{
     width: 60;
     height: 60;
@@ -19,6 +19,11 @@ Item{
     MouseArea{
         id: mousearea
         anchors.fill: parent;
-    }
+        onClicked: {
+            currentVideoId = model.videoid;
+            videoplayer.isNewVideo = true;
+            Youku.youku.getPlay(currentVideoId, loadStreams, showVideosFailureInfo);
 
+        }
+    }
 }

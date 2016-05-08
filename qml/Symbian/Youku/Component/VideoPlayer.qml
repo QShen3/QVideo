@@ -68,7 +68,7 @@ Item{
     ]
     Rectangle{
         anchors.fill: parent;
-        color: "white";
+        color: "black";
     }
 
     ScreenSaver {
@@ -110,13 +110,19 @@ Item{
             signalcenter.showMessage(errorString);
         }
         onStarted: {
-            screenSaver.setScreenSaverDelayed(true);
+            //screenSaver.setScreenSaverDelayed(true);
+            if(!screenSaver.screenSaverInhibited){
+                console.log(screenSaver.setScreenSaverInhibit());
+            }
+
             //console.log("start")
-            root.rotation ++;
-            adjustScreen.start();
+            if(video.position < 1000){
+                root.rotation ++;
+                adjustScreen.start();
+            }
         }
         onStopped: {
-            screenSaver.setScreenSaverDelayed(false);
+            //screenSaver.setScreenSaverDelayed(false);
         }
         onVolumeChanged: {
             console.log(volume);
@@ -373,7 +379,7 @@ Item{
 
     Timer{
         id: adjustScreen;
-        interval: 300;
+        interval: 100;
         onTriggered: {
             if(root.state == "FullScreen"){
                 root.rotation = 90;

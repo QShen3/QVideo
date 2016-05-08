@@ -36,5 +36,6 @@
         <file>qml/pic/volume.svg</file>
         <file>qml/Symbian/Youku/DetailPage/VideoInfo.qml</file>
         <file>qml/Symbian/Youku/DetailPage/EpisodeList.qml</file>
+        <file>qml/Symbian/Youku/DetailPage/RelateList.qml</file>
     </qresource>
 </RCC>

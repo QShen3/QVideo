@@ -25,6 +25,7 @@ MyPage{
     property string currentFormat: "";
 
     property int episodePage: 1;
+    property int relatePage: 1;
 
     tools: MyToolBarLayout{
         ToolButton{
@@ -229,6 +230,10 @@ MyPage{
                         delegate: RelateComponent{}
                     }
                 }
+                onClicked: {
+                    loader.source = "DetailPage/RelateList.qml";
+                    loader.state = "open";
+                }
             }
 
         }
@@ -283,6 +288,10 @@ MyPage{
     ListModel{
         id: relatemodel;
     }
+    ListModel{
+        id: fullrelatemodel;
+    }
+
     function loadDetail(oritxt){
         var obj = JSON.parse(oritxt);
         if(obj.status !== "success"){

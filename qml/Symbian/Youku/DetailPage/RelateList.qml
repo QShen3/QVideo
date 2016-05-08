@@ -32,29 +32,39 @@ Rectangle {
             }
             Text{
                 anchors.verticalCenter: parent.verticalCenter;
-                text: qsTr("Episode");
+                text: qsTr("Relate");
             }
         }
         onClicked: {
             loader.state = "";
         }
     }
-    GridView{
-        id: episodeview;
+    Flickable{
+        id: relateview;
         anchors.fill: parent;
         anchors.topMargin: title.height;
+        contentHeight: grid.height;
+        flickableDirection: Flickable.VerticalFlick;
         clip: true;
-        cellHeight: 60;
-        cellWidth: 60;
-        model: fullvideomodel;
-        delegate: EpisodeComponent{}
-
+        Grid{
+            id: grid;
+            anchors{
+                top: parent.top;
+                left: parent.left;
+                right: parent.right;
+            }
+            columns: 3;
+            Repeater{
+                model: fullrelatemodel;
+                delegate: RelateComponent{}
+            }
+        }
         onMovementEnded: {
             if(contentY >= (contentHeight - height - 1)){
                 console.log("page++")
-                episodePage++;
+                relatePage++;
                 loadingindicator.open();
-                Youku.youku.getVideos(id, "vid|titl|lim|is_new|pv", "2", episodePage.toString(), "100", loadFullVideos, showVideosFailureInfo);
+                Youku.youku.getRelate(id, relatePage.toString(), "18", loadFullRelate, showVideosFailureInfo);
             }
         }
 
@@ -64,14 +74,14 @@ Rectangle {
         }
     }
     Component.onCompleted: {
-        if(fullvideomodel.count === 0){
-            episodePage = 1;
+        if(fullrelatemodel.count === 0){
+            relatePage = 1;
             loadingindicator.open();
-            Youku.youku.getVideos(id, "vid|titl|lim|is_new|pv", "2", episodePage.toString(), "100", loadFullVideos, showVideosFailureInfo);
+            Youku.youku.getRelate(id, relatePage.toString(), "15", loadFullRelate, showVideosFailureInfo);
         }
     }
 
-    function loadFullVideos(oritxt){
+    function loadFullRelate(oritxt){
         loadingindicator.close();
         var obj = JSON.parse(oritxt);
         if(obj.status !== "success"){
@@ -80,14 +90,16 @@ Rectangle {
         }
         if(obj.results.length === 0){
             signalcenter.showMessage(qsTr("No more avaliable!"));
-            episodePage--;
+            relatePage--;
             return;
         }
         if(obj.pg === 1){
-            fullvideomodel.clear();
+            fullrelatemodel.clear();
         }
         for(var i in obj.results){
-            fullvideomodel.append(obj.results[i]);
+            fullrelatemodel.append(obj.results[i]);
         }
     }
+
+
 }

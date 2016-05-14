@@ -69,11 +69,13 @@ MyPage{
         ToolButton{
             iconSource: "toolbar-search";
             platformInverted: true;
+            onClicked: pageStack.push(Qt.resolvedUrl("SearchPage.qml"));
         }
 
         ToolButton{
             iconSource: "toolbar-settings"
             platformInverted: true;
+            onClicked: pageStack.push(Qt.resolvedUrl("../SettingPage.qml"));
         }
     }
 

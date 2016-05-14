@@ -44,6 +44,7 @@ MyPage{
         ToolButton{
             iconSource: "toolbar-settings"
             platformInverted: true;
+            onClicked: pageStack.push(Qt.resolvedUrl("../SettingPage.qml"));
         }
     }
 
@@ -118,7 +119,7 @@ MyPage{
                     Rectangle{
                         height: 45;
                         width: 5;
-                        color: "#1056dd";
+                        color: "#06a7e1";
                     }
                     Text {
                         text: qsTr("Choose episode");
@@ -190,7 +191,7 @@ MyPage{
                     Rectangle{
                         height: 45;
                         width: 5;
-                        color: "#1056dd";
+                        color: "#06a7e1";
                     }
                     Text {
                         text: qsTr("Relate");

@@ -33,6 +33,7 @@ Rectangle {
             Text{
                 anchors.verticalCenter: parent.verticalCenter;
                 text: qsTr("Relate");
+                color: "#3c3c3c";
             }
         }
         onClicked: {

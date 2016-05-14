@@ -21,12 +21,14 @@ Rectangle{
             spacing: 12;
             Image{
                 anchors.verticalCenter: parent.verticalCenter;
-                source: privateStyle.imagePath("toolbar-previous");
+                source: privateStyle.imagePath("toolbar-previous", true);
+                smooth: true;
                 sourceSize: Qt.size(20, 20);
             }
             Text{
                 anchors.verticalCenter: parent.verticalCenter;
                 text: qsTr("Detail");
+                color: "#3c3c3c";
             }
         }
         onClicked: {
@@ -54,36 +56,44 @@ Rectangle{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Name:") + detailpage.title;
+                color: "#3c3c3c";
             }
             Text{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Reputation:") + reputation;
+                color: "#3c3c3c";
             }
             Text{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Area:") + area.toString();
+                color: "#3c3c3c";
             }
             Text{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Original:") + original.toString();
+                color: "#3c3c3c";
             }
             Text{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Voice:") + voice.toString();
+                color: "#3c3c3c";
             }
             Rectangle{
-                width: 330;
+                anchors.horizontalCenter: parent.horizontalCenter;
+                width: 360;
                 height: 1;
-                color: "gray";
+                color: "#000000";
+                opacity: 0.1;
             }
             Text{
                 width: 330;
                 wrapMode: Text.WordWrap;
                 text: desc;
+                color: "#3c3c3c";
             }
         }
     }

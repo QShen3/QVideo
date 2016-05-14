@@ -19,6 +19,7 @@ ListRect{
             anchors.horizontalCenter: parent.horizontalCenter;
             text: model.title;
             font.pixelSize: 18;
+            color: "#3c3c3c";
         }
     }
 }

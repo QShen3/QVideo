@@ -294,7 +294,7 @@ Item{
             Text{
                 anchors.left: progressBar.left;
                 anchors.top: progressBar.bottom;
-                color: "black";
+                color: "#3c3c3c";
                 font.pixelSize: 15;
                 visible: root.state == "FullScreen";
                 text: milliSecondsToString(currentMilliseconds + video.position);
@@ -302,7 +302,7 @@ Item{
             Text{
                 anchors.right: progressBar.right;
                 anchors.top: progressBar.bottom;
-                color: "black";
+                color: "#3c3c3c";
                 font.pixelSize: 15;
                 visible: root.state == "FullScreen";
                 text: milliSecondsToString(totalMilliseconds);

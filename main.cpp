@@ -34,6 +34,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QmlApplicationViewer viewer;
 
+    //viewer.setAttribute(Qt::WA_OpaquePaintEvent);
+    viewer.setAttribute(Qt::WA_NoSystemBackground);
+
     viewer.rootContext()->setContextProperty("utility", &utility);
     viewer.rootContext()->setContextProperty("settings", &settings);
 

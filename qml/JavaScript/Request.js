@@ -40,7 +40,7 @@ function Request(url, method)
                          }
                      };
              xhr.open(this.method, this.url + this.query);
-             //console.log("querying " + this.url + this.query)
+             console.log("querying " + this.url + this.query)
              if (this.method === "POST") {
                  xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
                  xhr.setRequestHeader("Content-Length", this.postData.length);

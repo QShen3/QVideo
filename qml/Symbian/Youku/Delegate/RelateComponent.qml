@@ -41,12 +41,13 @@ ListRect{
             clip: true;
             text: model.title;
             font.pixelSize: 15;
+            color: "#3c3c3c";
         }
         Text{
             width: 108;
             clip: true;
             text: model.total_vv_fmt;
-            color: "gray";
+            color: "#787878";
             font.pixelSize: 12;
         }
     }

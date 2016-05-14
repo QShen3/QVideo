@@ -11,7 +11,7 @@ PageStackWindow{
 
     showStatusBar: true;
 
-    focus: true;
+    //focus: true;
 
     //showToolBar: false;
 

@@ -21,7 +21,7 @@ Rectangle{
         Rectangle{
             height: 45;
             width: 5;
-            color: "#1056dd";
+            color: "#06a7e1";
         }
         Text {
             text: model.title;
@@ -79,12 +79,13 @@ Rectangle{
                                 clip: true;
                                 text: model.title;
                                 font.pixelSize: 15;
+                                color: "#3c3c3c";
                             }
                             Text{
                                 width: 162;
                                 clip: true;
                                 text: model.subtitle;
-                                color: "gray";
+                                color: "#787878";
                                 font.pixelSize: 12
                             }
                         }

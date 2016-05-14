@@ -21,6 +21,7 @@ Rectangle{
             leftMargin: 15;
         }
         font.pixelSize: 24;
+        color: "#3c3c3c";
     }
     Image{
         id:shadow;

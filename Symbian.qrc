@@ -37,5 +37,10 @@
         <file>qml/Symbian/Youku/DetailPage/VideoInfo.qml</file>
         <file>qml/Symbian/Youku/DetailPage/EpisodeList.qml</file>
         <file>qml/Symbian/Youku/DetailPage/RelateList.qml</file>
+        <file>qml/Symbian/Youku/Delegate/HotWordComponent.qml</file>
+        <file>qml/Symbian/Youku/SearchPage.qml</file>
+        <file>qml/Symbian/Youku/Component/SearchField.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SearchProgramComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SearchVideoComponent.qml</file>
     </qresource>
 </RCC>

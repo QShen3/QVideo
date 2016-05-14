@@ -7,7 +7,7 @@ Item{
     Text{
         anchors.centerIn: parent;
         text: model.show_videostage;
-        color: currentVideoId===model.videoid ? "#1056dd" : "black";
+        color: currentVideoId===model.videoid ? "#1080dd" : "#3c3c3c";
     }
     Rectangle{
         anchors.fill: parent;

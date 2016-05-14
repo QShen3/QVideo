@@ -14,7 +14,7 @@ Item{
             leftMargin: 10;
             verticalCenter: parent.verticalCenter;
         }
-        color: "#1056dd"
+        color: "#1080dd"
         text: model.items.get(0).title;
     }
     Flickable{

@@ -15,11 +15,17 @@ MyPage{
     property string userName;
     property string userId;
     property int totalVideo;
-    property string reputation ;
-    property variant area;
-    property variant original;
-    property variant voice;
-    property string desc;
+    property string showDate: "";
+    property string reputation: "";
+    property variant genre: [];
+    property variant area: [];
+    property variant director: [];
+    property variant performer: [];
+    property variant host: [];
+    property variant original: [];
+    property variant voice: [];
+    property variant production: [];
+    property string desc: "";
 
     property string currentVideoId: "";
     property string currentFormat: "";
@@ -301,11 +307,17 @@ MyPage{
         }
         id = obj.detail.showid;
         title = obj.detail.title;
+        showDate = obj.detail.showdate;
         totalVideo = obj.detail.episode_total
         reputation = obj.detail.reputation;
+        genre = obj.detail.genre;
         area = obj.detail.area;
+        director = obj.detail.director;
+        performer = obj.detail.performer;
+        host = obj.detail.host;
         original = obj.detail.original;
         voice = obj.detail.voice;
+        production = obj.detail.production;
         desc = obj.detail.desc;
 
         userId = obj.detail.userid;

@@ -60,27 +60,83 @@ Rectangle{
             }
             Text{
                 width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Show date:") + showDate;
+                color: "#3c3c3c";
+                visible: showDate !== "";
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
                 wrapMode: Text.WordWrap;
                 text: qsTr("Reputation:") + reputation;
                 color: "#3c3c3c";
+                visible: reputation !== "";
             }
             Text{
                 width: 330;
+                height: visible ? paintedHeight : 0;
                 wrapMode: Text.WordWrap;
-                text: qsTr("Area:") + area.toString();
+                text: qsTr("Genre:") + (genre===undefined ? "" : genre.toString());
                 color: "#3c3c3c";
+                visible: genre !== undefined;
             }
             Text{
                 width: 330;
+                height: visible ? paintedHeight : 0;
                 wrapMode: Text.WordWrap;
-                text: qsTr("Original:") + original.toString();
+                text: qsTr("Area:") + (area===undefined ? "" : area.toString());
                 color: "#3c3c3c";
+                visible: area !== undefined;
             }
             Text{
                 width: 330;
+                height: visible ? paintedHeight : 0;
                 wrapMode: Text.WordWrap;
-                text: qsTr("Voice:") + voice.toString();
+                text: qsTr("Director:") + (director===undefined ? "" : director.toString());
                 color: "#3c3c3c";
+                visible: director !== undefined;
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Performer:") + (performer===undefined ? "" : performer.toString());
+                color: "#3c3c3c";
+                visible: performer !== undefined;
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Host:") + (host===undefined ? "" : host.toString());
+                color: "#3c3c3c";
+                visible: host !== undefined;
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Original:") + (original===undefined ? "" : original.toString());
+                color: "#3c3c3c";
+                visible: original !== undefined;
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Voice:") + (voice===undefined ? "" : voice.toString());
+                color: "#3c3c3c";
+                visible: voice !== undefined;
+            }
+            Text{
+                width: 330;
+                height: visible ? paintedHeight : 0;
+                wrapMode: Text.WordWrap;
+                text: qsTr("Production:") + (production===undefined ? "" : production.toString());
+                color: "#3c3c3c";
+                visible: production !== undefined;
             }
             Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter;

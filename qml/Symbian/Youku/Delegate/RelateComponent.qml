@@ -12,7 +12,7 @@ ListRect{
         //height: 178 / sourceSize.width * sourceSize.height;
         height: 100;
         smooth: true;
-        source: model.show_vthumburl;
+        source: model.show_vthumburl ? model.show_vthumburl : model.img;
         Text{
             anchors{
                 left: parent.left;

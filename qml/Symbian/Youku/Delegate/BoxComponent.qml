@@ -101,7 +101,4 @@ Rectangle{
             }
         }
     }
-    Component.onCompleted: {
-        //console.log(height)
-    }
 }

@@ -28,7 +28,7 @@ CommonDialog{
                         leftMargin: 10;
                         verticalCenter: parent.verticalCenter;
                     }
-                    color: "#1056dd";
+                    color: "#1080dd";
                     //text: sortmodel.get(0).title;
                 }
                 Flickable{

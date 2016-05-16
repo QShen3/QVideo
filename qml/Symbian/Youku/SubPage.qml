@@ -266,7 +266,7 @@ MyPage{
                     }
                 }
             }
-            else if(obj.boxes[i].module_type === "normal"){
+            else if(obj.boxes[i].module_type === "normal" && obj.boxes[i].cells[0].contents[0].type !== "4"){
                 boxmodel.append(obj.boxes[i]);
             }
         }

@@ -17,14 +17,14 @@ MyPage{
     property int totalVideo;
     property string showDate: "";
     property string reputation: "";
-    property variant genre: [];
-    property variant area: [];
-    property variant director: [];
-    property variant performer: [];
-    property variant host: [];
-    property variant original: [];
-    property variant voice: [];
-    property variant production: [];
+    property variant genre;
+    property variant area;
+    property variant director;
+    property variant performer;
+    property variant host;
+    property variant original;
+    property variant voice;
+    property variant production;
     property string desc: "";
 
     property string currentVideoId: "";
@@ -90,6 +90,8 @@ MyPage{
                         left: parent.left;
                         leftMargin: 10;
                     }
+                    width: 195;
+                    clip: true;
                     text: title;
                 }
                 Row{
@@ -117,7 +119,8 @@ MyPage{
                 }
             }
             MyListItem{
-                height: 105;
+                height: videosmodel.count==0 ? 0 : 105;
+                visible: videosmodel.count != 0;
                 //enabled: false;
                 Row{
                     spacing: 12;
@@ -305,11 +308,11 @@ MyPage{
             showVideosFailureInfo(obj.status);
             return;
         }
-        id = obj.detail.showid;
+        id = obj.detail.showid ? obj.detail.showid : obj.detail.videoid;
         title = obj.detail.title;
-        showDate = obj.detail.showdate;
-        totalVideo = obj.detail.episode_total
-        reputation = obj.detail.reputation;
+        showDate = obj.detail.showdate ? obj.detail.showdate : "";
+        totalVideo = obj.detail.episode_total ? obj.detail.episode_total : 0;
+        reputation = obj.detail.reputation ? obj.detail.reputation : "";
         genre = obj.detail.genre;
         area = obj.detail.area;
         director = obj.detail.director;
@@ -318,7 +321,7 @@ MyPage{
         original = obj.detail.original;
         voice = obj.detail.voice;
         production = obj.detail.production;
-        desc = obj.detail.desc;
+        desc = obj.detail.desc ? obj.detail.desc : "";
 
         userId = obj.detail.userid;
         userName = obj.detail.username;
@@ -340,7 +343,12 @@ MyPage{
             videosmodel.append(obj.results[i]);
         }
         if(currentVideoId == ""){
-            currentVideoId = obj.results[0].videoid;
+            if(obj.results.length === 0){
+                currentVideoId = id;
+            }
+            else{
+                currentVideoId = obj.results[0].videoid;
+            }
         }
         Youku.youku.getPlay(currentVideoId, loadStreams, showVideosFailureInfo);
         /*if(settings.autoPlay){

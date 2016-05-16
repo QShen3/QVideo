@@ -99,7 +99,11 @@ MyPage{
             if((obj.channels[i].type === 0) && (obj.channels[i].tags.length > 0)){
 
                 for(var j in obj.channels[i].tags){
-                    if(obj.channels[i].tags[j].jump_type === 2 && obj.channels[i].tags[j].channel_id !== 1001 && obj.channels[i].tags[j].channel_id !== 1002){
+                    if(obj.channels[i].tags[j].jump_type === 2
+                            && obj.channels[i].tags[j].channel_id !== 1001
+                            && obj.channels[i].tags[j].channel_id !== 1002
+                            && obj.channels[i].tags[j].channel_id !== 2010
+                            && obj.channels[i].tags[j].channel_id !== 2001){
                         tagmodel.append(obj.channels[i].tags[j]);
                     }
                 }

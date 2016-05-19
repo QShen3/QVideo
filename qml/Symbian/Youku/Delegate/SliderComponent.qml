@@ -20,6 +20,13 @@ Image{
         font.pixelSize: 21;
         color: "white";
     }
+    Image{
+        source: "../../../pic/vip_icon_corner_free.png";
+        sourceSize: Qt.size(45, 45);
+        height: sourceSize.height;
+        width: sourceSize.width;
+        visible: model.paid === 1;
+    }
     MouseArea{
         anchors.fill: parent;
         onClicked: {

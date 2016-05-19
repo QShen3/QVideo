@@ -21,5 +21,6 @@
         <file>qml/JavaScript/Youku.js</file>
         <file>qml/pic/icon-m-toolbar-next.png</file>
         <file>qml/JavaScript/MD5.js</file>
+        <file>qml/pic/vip_icon_corner_free.png</file>
     </qresource>
 </RCC>

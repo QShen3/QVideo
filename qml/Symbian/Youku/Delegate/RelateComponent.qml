@@ -24,6 +24,13 @@ ListRect{
             font.pixelSize: 15;
             //Component.onCompleted: console.log(font.pixelSize)
         }
+        Image{
+            source: "../../../pic/vip_icon_corner_free.png";
+            sourceSize: Qt.size(45, 45);
+            height: sourceSize.height;
+            width: sourceSize.width;
+            visible: model.paid === 1;
+        }
         onStatusChanged: {
             if(status == Image.Ready){
                 height = 118 / sourceSize.width * sourceSize.height;
@@ -53,6 +60,11 @@ ListRect{
     }
     onClicked: {
         videoplayer.stop();
-        pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.showid, title: model.title});
+        if(model.showid === ""){
+            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.videoid, title: model.title});
+        }
+        else{
+            pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.showid, title: model.title, currentVideoId: model.videoid});
+        }
     }
 }

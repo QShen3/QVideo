@@ -35,7 +35,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QmlApplicationViewer viewer;
 
     //viewer.setAttribute(Qt::WA_OpaquePaintEvent);
-    viewer.setAttribute(Qt::WA_NoSystemBackground);
+    //viewer.setAttribute(Qt::WA_NoSystemBackground);
 
     viewer.rootContext()->setContextProperty("utility", &utility);
     viewer.rootContext()->setContextProperty("settings", &settings);

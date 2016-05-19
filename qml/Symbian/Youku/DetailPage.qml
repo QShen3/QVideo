@@ -301,6 +301,9 @@ MyPage{
     ListModel{
         id: fullrelatemodel;
     }
+    Binding{
+
+    }
 
     function loadDetail(oritxt){
         var obj = JSON.parse(oritxt);
@@ -327,6 +330,10 @@ MyPage{
         userName = obj.detail.username;
 
         Youku.youku.getUserinfo(userId, "0", "0", loadUserinfo, showVideosFailureInfo);
+
+        if(obj.detail.paid === 1){
+            signalcenter.showMessage(qsTr("This Video is only for Youku's VIP. You may not be able to watch it completely."));
+        }
     }
 
     function loadVideos(oritxt){
@@ -386,6 +393,10 @@ MyPage{
             }
         }
 
+        if(streammodel.count == 0){
+            signalcenter.showMessage(qsTr("No supported formats..."));
+            return;
+        }
 
         if(firstStart){
             if(settings.autoPlay){

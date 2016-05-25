@@ -21,9 +21,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
     QApplication app(argc, argv);
 
+    app.setApplicationName("QVideo");
+    app.setOrganizationName("QShen");
+    app.setApplicationVersion(VER);
+
+
+
     QString locale = QLocale::system().name();
     QTranslator translator;
-    if(!translator.load(QString("qvideo_") + locale,":/i18n")){
+    if(!translator.load(QString("QVideo_") + locale,":/i18n")){
         qDebug()<<"translator load erro";
     }
     app.installTranslator(&translator);
@@ -34,13 +40,19 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QmlApplicationViewer viewer;
 
-    //viewer.setAttribute(Qt::WA_OpaquePaintEvent);
-    //viewer.setAttribute(Qt::WA_NoSystemBackground);
+    viewer.setAttribute(Qt::WA_OpaquePaintEvent);
+    viewer.setAttribute(Qt::WA_NoSystemBackground);
 
     viewer.rootContext()->setContextProperty("utility", &utility);
     viewer.rootContext()->setContextProperty("settings", &settings);
 
+    viewer.rootContext()->setContextProperty("appVersion", app.applicationVersion());
+
 #ifdef Q_OS_SYMBIAN
+    QSplashScreen *splash = new QSplashScreen(QPixmap(":/qml/pic/splash.png"));
+    splash->show();
+    splash->raise();
+
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
 #elif defined(Q_WS_SIMULATOR)
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
@@ -56,5 +68,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #endif
 
+#ifdef Q_OS_SYMBIAN
+    splash->finish(&viewer);
+    splash->deleteLater();
+#endif
     return app.exec();
 }

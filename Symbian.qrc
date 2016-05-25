@@ -42,5 +42,8 @@
         <file>qml/Symbian/Youku/Component/SearchField.qml</file>
         <file>qml/Symbian/Youku/Delegate/SearchProgramComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/SearchVideoComponent.qml</file>
+        <file>qml/Symbian/BaseComponent/MyListHeading.qml</file>
+        <file>qml/Symbian/AboutPage.qml</file>
+        <file>qml/Symbian/LicensePage.qml</file>
     </qresource>
 </RCC>

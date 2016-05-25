@@ -30,6 +30,7 @@ MyPage{
         contentHeight: settingscolumn.height;
         Column{
             id: settingscolumn;
+            width: 360;
             CheckBox{
                 anchors.left: parent.left;
                 anchors.leftMargin: 10;
@@ -44,6 +45,21 @@ MyPage{
                 platformInverted: true;
                 onClicked: preferformat.open();
             }
+            Rectangle{
+                height: 21;
+                width: 1;
+            }
+
+            Button{
+                anchors.horizontalCenter: parent.horizontalCenter;
+                platformInverted: true;
+                width: 300;
+                text: qsTr("About");
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+                }
+            }
+
         }
 
     }

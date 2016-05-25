@@ -147,7 +147,8 @@ MyPage{
         height: 45;
         platformInverted: true;
         opacity: 0.8;
-        iconSource: privateStyle.imagePath("toolbar-menu");
+        //iconSource: privateStyle.imagePath("toolbar-menu");
+        iconSource: "../../pic/filter.svg";
         visible: filtermodel.count!=0 && sortmodel.count!=0;
         onClicked: {
             filterdialog.open();

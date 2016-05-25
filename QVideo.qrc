@@ -22,5 +22,15 @@
         <file>qml/pic/icon-m-toolbar-next.png</file>
         <file>qml/JavaScript/MD5.js</file>
         <file>qml/pic/vip_icon_corner_free.png</file>
+        <file>qml/pic/filter.svg</file>
+        <file>QVideo.svg</file>
+        <file>qml/pic/avatar.png</file>
+        <file>qml/pic/favicon.ico</file>
+        <file>qml/pic/tbclient.svg</file>
+        <file>qml/pic/Weibo_logo.svg</file>
+        <file>qml/pic/splash.png</file>
+        <file>License/ThirdPart/Qt_4.7.4_License</file>
+        <file>License/ThirdPart/Qt_Quick_Components_License</file>
+        <file>License/ThirdPart/You-Get_License</file>
     </qresource>
 </RCC>

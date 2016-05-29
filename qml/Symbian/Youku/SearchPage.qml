@@ -28,6 +28,7 @@ MyPage{
         ToolButton{
             iconSource: "toolbar-back";
             onClicked:{
+                app.forceActiveFocus();
                 pageStack.pop();
             }
             platformInverted: true;
@@ -35,7 +36,10 @@ MyPage{
         ToolButton{
             iconSource: "toolbar-settings"
             platformInverted: true;
-            onClicked: pageStack.push(Qt.resolvedUrl("../SettingPage.qml"));
+            onClicked: {
+                app.forceActiveFocus();
+                pageStack.push(Qt.resolvedUrl("../SettingPage.qml"));
+            }
         }
     }
 
@@ -60,6 +64,7 @@ MyPage{
                 Youku.youku.getDSearch(text, loadProgram, showLoadFailureInfo);
                 Youku.youku.getSearch(text, format, cid, seconds, secondsEnd, ob, pg.toString(), loadVideos, showLoadFailureInfo);
             }
+            app.forceActiveFocus();
         }
     }
 

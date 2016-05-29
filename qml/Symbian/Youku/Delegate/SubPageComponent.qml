@@ -11,7 +11,7 @@ ListRect{
         width: 118;
         //height: 178 / sourceSize.width * sourceSize.height;
         height: 100;
-        smooth: true;
+        //smooth: true;
         source: img;
         Text{
             anchors{

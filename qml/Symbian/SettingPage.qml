@@ -1,6 +1,7 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 import com.nokia.symbian 1.1
+import "../JavaScript/Utility.js" as Utility
 import "BaseComponent"
 MyPage{
     id: settingpage;
@@ -39,6 +40,14 @@ MyPage{
                 checked: settings.autoPlay;
                 onCheckedChanged: settings.autoPlay = checked;
             }
+            CheckBox{
+                anchors.left: parent.left;
+                anchors.leftMargin: 10;
+                text: qsTr("Auto check new version");
+                platformInverted: true;
+                checked: settings.autoCheckNewVersion;
+                onCheckedChanged: settings.autoCheckNewVersion = checked;
+            }
             SelectionListItem{
                 title: qsTr("Prefer format for Youku");
                 subTitle: settings.preferFormat==="mp4" ? qsTr("High quality") : qsTr("General quality");
@@ -49,7 +58,19 @@ MyPage{
                 height: 21;
                 width: 1;
             }
-
+            Button{
+                anchors.horizontalCenter: parent.horizontalCenter;
+                platformInverted: true;
+                width: 300;
+                text: qsTr("Check for new version");
+                onClicked: {
+                    Utility.utility.getVersion(loadVersionInfo, signalcenter.showMessage);
+                }
+            }
+            Rectangle{
+                height: 21;
+                width: 1;
+            }
             Button{
                 anchors.horizontalCenter: parent.horizontalCenter;
                 platformInverted: true;
@@ -77,6 +98,22 @@ MyPage{
                 platformInverted: true;
                 onClicked: settings.preferFormat = "3gphd";
             }
+        }
+    }
+
+    function loadVersionInfo(oritxt){
+        var obj = JSON.parse(oritxt);
+
+        if(Utility.versionStringToInt(obj.symbian.version) > Utility.versionStringToInt(appVersion)){
+            if(utility.getLocale().substring(0, 2) === "zh"){
+                newversiondialog.openDialog(obj.symbian.changeLog.zh, obj.symbian.url);
+            }
+            else{
+                newversiondialog.openDialog(obj.symbian.changeLog.en, obj.symbian.url);
+            }
+        }
+        else{
+            signalcenter.showMessage(qsTr("The current version is the latest version"));
         }
     }
 }

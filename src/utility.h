@@ -10,5 +10,6 @@ public:
     ~Utility();
 
     Q_INVOKABLE QString readFile(QString url);
+    Q_INVOKABLE QString getLocale();
 };
 #endif // UTILITY_H

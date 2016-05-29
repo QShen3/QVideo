@@ -32,5 +32,8 @@
         <file>License/ThirdPart/Qt_4.7.4_License</file>
         <file>License/ThirdPart/Qt_Quick_Components_License</file>
         <file>License/ThirdPart/You-Get_License</file>
+        <file>qml/JavaScript/Utility.js</file>
+        <file>i18n/QVideo_zh.qm</file>
+        <file>i18n/QVideo_zh.ts</file>
     </qresource>
 </RCC>

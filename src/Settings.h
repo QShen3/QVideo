@@ -11,6 +11,8 @@ class Settings : public QObject
 
     Q_PROPERTY(QString preferFormat READ getPreferFormat WRITE setPreferFormat NOTIFY preferFormatChanged)
     Q_PROPERTY(bool autoPlay READ autoPlay WRITE setAutoPlay NOTIFY autoPlayChanged)
+    Q_PROPERTY(bool autoCheckNewVersion READ isAutoCheckNewVersion WRITE setAutoCheckNewVersion NOTIFY autoCheckNewVersionChanged)
+    Q_PROPERTY(QString version READ version WRITE setVersion NOTIFY versionChanged)
     Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY volumeChanged)
 
 public:
@@ -26,9 +28,18 @@ public:
     int volume();
     void setVolume(int);
 
+    bool isAutoCheckNewVersion();
+    void setAutoCheckNewVersion(bool);
+
+    QString version();
+    void setVersion(QString);
+
 signals:
     void preferFormatChanged();
     void autoPlayChanged();
+    void autoCheckNewVersionChanged();
+    void versionChanged();
+
     void volumeChanged();
 
 public slots:
@@ -42,6 +53,9 @@ private:
 
     QString m_preferFormat;
     bool m_autoPlay;
+    bool m_autoCheckNewVersion;
+    QString m_version;
+
     int m_volume;
 };
 

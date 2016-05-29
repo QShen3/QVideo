@@ -21,6 +21,8 @@ void Settings::loadSettings()
     if(settings){
         m_preferFormat = settings->value("preferFormat", "mp4").toString();
         m_autoPlay = settings->value("autoPlay", true).toBool();
+        m_autoCheckNewVersion = settings->value("autoCheckNewVersion", true).toBool();
+        m_version = settings->value("version", "0.0.0").toString();
         m_volume = settings->value("volume", 0).toInt();
     }
     else{
@@ -34,6 +36,8 @@ void Settings::saveSettings()
     if(settings){
         settings->setValue("preferFormat", m_preferFormat);
         settings->setValue("autoPlay", m_autoPlay);
+        settings->setValue("autoCheckNewVersion", m_autoCheckNewVersion);
+        settings->setValue("version", m_version);
         settings->setValue("volume", m_volume);
     }
     else{
@@ -72,6 +76,29 @@ void Settings::setAutoPlay(bool newAutoPlay)
     if(m_autoPlay != newAutoPlay){
         m_autoPlay = newAutoPlay;
         emit autoPlayChanged();
+    }
+}
+bool Settings::isAutoCheckNewVersion()
+{
+    return m_autoCheckNewVersion;
+}
+void Settings::setAutoCheckNewVersion(bool arg)
+{
+    if (m_autoCheckNewVersion != arg){
+        m_autoCheckNewVersion = arg;
+        emit autoCheckNewVersionChanged();
+    }
+}
+
+QString Settings::version()
+{
+    return m_version;
+}
+void Settings::setVersion(QString newVerison)
+{
+    if (m_version != newVerison){
+        m_version = newVerison;
+        emit versionChanged();
     }
 }
 

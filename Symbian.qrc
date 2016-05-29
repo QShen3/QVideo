@@ -45,5 +45,8 @@
         <file>qml/Symbian/BaseComponent/MyListHeading.qml</file>
         <file>qml/Symbian/AboutPage.qml</file>
         <file>qml/Symbian/LicensePage.qml</file>
+        <file>qml/Symbian/Dialog/FirstOpenDialog.qml</file>
+        <file>qml/Symbian/Dialog/NewVersionDialog.qml</file>
+        <file>qml/Symbian/Dialog/MessageDialog.qml</file>
     </qresource>
 </RCC>

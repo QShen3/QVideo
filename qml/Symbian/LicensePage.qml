@@ -6,6 +6,7 @@ import "BaseComponent"
 MyPage{
     id: licensePage;
     property string fileName;
+    property string textString: qsTr("******profile******");
     title: qsTr("License");
 
     Head{
@@ -38,7 +39,7 @@ MyPage{
             anchors.horizontalCenter: parent.horizontalCenter;
             width: 330;
             wrapMode: Text.WordWrap;
-            text: utility.readFile(fileName);
+            text: title===qsTr("License")?utility.readFile(fileName):textString;
             color: "#3c3c3c";
         }
     }

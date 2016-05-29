@@ -47,11 +47,16 @@ Item{
                 onClicked: {
                     searchtext.closeSoftwareInputPanel();
                     searchtext.text = "";
+                    app.forceActiveFocus();
                     //searchtext.parent.forceActiveFocus();
                 }
             }
         }
         //Component.onCompleted: console.log(height);
+        onFocusChanged: {
+            console.log("focus changed:" + focus);
+            //forceActiveFocus()
+        }
     }
     Button{
         id: searchbutton;

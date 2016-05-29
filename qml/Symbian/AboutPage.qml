@@ -32,6 +32,7 @@ MyPage{
         clip: true;
         Column{
             id: aboutcolumn;
+            width: 360;
             Item{
                 width: 360;
                 height: 270;
@@ -88,7 +89,8 @@ MyPage{
                     sourceSize: Qt.size(20, 20);
                 }
                 onClicked: {
-                    Qt.openUrlExternally("http://tieba.baidu.com/home/main?un=qazxdrcssc2006&fr=home");
+                    pageStack.push(Qt.resolvedUrl("LicensePage.qml"),{title: "QShen"})
+                    //Qt.openUrlExternally("http://tieba.baidu.com/home/main?un=qazxdrcssc2006&fr=home");
                 }
             }
             MyListItem{
@@ -122,7 +124,7 @@ MyPage{
                     sourceSize: Qt.size(20, 20);
                 }
                 onClicked: {
-                    Qt.openUrlExternally("http://tieba.baidu.com/home/main?un=qazxdrcssc2006&fr=home");
+                    Qt.openUrlExternally("http://tieba.baidu.com/home/main?un=qazxdrcssc2006");
                 }
             }
             MyListItem{
@@ -272,6 +274,15 @@ MyPage{
                 onClicked: {
                     Qt.openUrlExternally("https://github.com/QShen3/QVideo");
                 }
+            }
+            Rectangle{
+                height: 21;
+                width: 1;
+            }
+            Text{
+                anchors.horizontalCenter: parent.horizontalCenter;
+                color: "#787878";
+                text: "Designed and developed by QShen,2016"
             }
         }
     }

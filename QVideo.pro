@@ -29,8 +29,7 @@ TRANSLATIONS += i18n/QVideo_zh.ts
 OTHER_FILES += \
     qml/JavaScript/*.js \
     qml/pic/*.svg \
-    qml/pic/*.png \
-    License/ThirdPart/*
+    qml/pic/*.png
 
 folder_symbian3.source = qml/Symbian
 folder_symbian3.target = qml
@@ -41,11 +40,8 @@ folder_js.target = qml
 folder_pic.source = qml/pic
 folder_pic.target = qml
 
-folder_license.source = License/ThirdPart
-folder_license.target = License
-
 simulator{
-    DEPLOYMENTFOLDERS += folder_js folder_pic folder_license
+    DEPLOYMENTFOLDERS += folder_js folder_pic
     DEPLOYMENTFOLDERS += folder_symbian3
     RESOURCES += \
         Symbian.qrc
@@ -80,7 +76,7 @@ symbian{
     MMP_RULES += "EPOCPROCESSPRIORITY windowserver"
 
     RESOURCES += Symbian.qrc
-    DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3 folder_license
+    DEPLOYMENTFOLDERS += folder_js folder_pic folder_symbian3
 
     include(qmlapplicationviewer/qmlapplicationviewer.pri)
     qtcAddDeployment()
@@ -91,6 +87,10 @@ symbian{
 contains(MEEGO_EDITION,harmattan){
     DEFINES += Q_OS_HARMATTAN
     CONFIG += qdeclarative-boostable meegotouch videosuiteinterface-maemo-meegotouch
+
+    #splash.files = splash/splash.png
+    #splash.path = /opt/tbclient/splash
+    #INSTALLS += splash
 
     #RESOURCES += Meego.qrc
     DEPLOYMENTFOLDERS +=  folder_JS folder_Meego folder_pic

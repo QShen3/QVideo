@@ -29,3 +29,7 @@ QString Utility::readFile(QString url)
     return QString(file.readAll());
 }
 
+QString Utility::getLocale()
+{
+    return QLocale::system().name();
+}

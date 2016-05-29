@@ -374,6 +374,11 @@ Item{
                 }
             }
         }
+        onStatusChanged: {
+            if(status === DialogStatus.Closed){
+                app.forceActiveFocus();
+            }
+        }
     }
 
 

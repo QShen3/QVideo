@@ -40,8 +40,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(5, 0, 0)
     QmlApplicationViewer viewer;
 
-    viewer.setAttribute(Qt::WA_OpaquePaintEvent);
-    viewer.setAttribute(Qt::WA_NoSystemBackground);
+    //viewer.setAttribute(Qt::WA_OpaquePaintEvent);
+    //viewer.setAttribute(Qt::WA_NoSystemBackground);
+    //viewer.viewport()->setAttribute(Qt::WA_OpaquePaintEvent);
+    //viewer.viewport()->setAttribute(Qt::WA_NoSystemBackground);
+    viewer.setOrientation(QmlApplicationViewer::ScreenOrientationLockPortrait);
 
     viewer.rootContext()->setContextProperty("utility", &utility);
     viewer.rootContext()->setContextProperty("settings", &settings);
@@ -54,6 +57,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     splash->raise();
 
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
+#elif defined(Q_OS_HARMATTAN)
+    //QApplication::setGraphicsSystem("native");
+    viewer.setSource(QUrl("qrc:/qml/Meego/main.qml"));
 #elif defined(Q_WS_SIMULATOR)
     viewer.setSource(QUrl("qrc:/qml/Symbian/main.qml"));
 #endif

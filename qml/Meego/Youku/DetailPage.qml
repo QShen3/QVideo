@@ -1,6 +1,6 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
-import com.nokia.symbian 1.1
+import com.nokia.meego 1.1
 import "../../JavaScript/Youku.js" as Youku
 import "../BaseComponent"
 import "Component"
@@ -33,23 +33,29 @@ MyPage{
     property int episodePage: 1;
     property int relatePage: 1;
 
-    tools: MyToolBarLayout{
-        ToolButton{
-            iconSource: "toolbar-back";
+    tools: ToolBarLayout{
+        ToolIcon{
+            iconId: "toolbar-back";
             onClicked:{
                 videoplayer.stop();
                 pageStack.pop();
             }
-            platformInverted: true;
+            platformStyle: ToolItemStyle{
+                inverted: true;
+            }
         }
-        ToolButton{
+        ToolIcon{
             iconSource: "../../pic/pull_down.svg";
             //onClicked: pageStack.push(Qt.resolvedUrl("Downloadpage.qml"))
-            platformInverted: true;
+            platformStyle: ToolItemStyle{
+                inverted: true;
+            }
         }
-        ToolButton{
-            iconSource: "toolbar-settings"
-            platformInverted: true;
+        ToolIcon{
+            iconId: "toolbar-settings"
+            platformStyle: ToolItemStyle{
+                inverted: true;
+            }
             onClicked: pageStack.push(Qt.resolvedUrl("../SettingPage.qml"));
         }
     }
@@ -82,33 +88,35 @@ MyPage{
                 right: parent.right;
                 top: parent.top;
             }
-            spacing: 6;
+            spacing: 8;
             MyListItem{
                 Text{
                     anchors{
                         verticalCenter: parent.verticalCenter;
                         left: parent.left;
-                        leftMargin: 10;
+                        leftMargin: 13;
                     }
-                    width: 195;
+                    width: 260;
                     clip: true;
+                    font.pixelSize: 24;
                     text: title;
                 }
                 Row{
                     anchors{
                         verticalCenter: parent.verticalCenter;
                         right: parent.right;
-                        rightMargin: 15;
+                        rightMargin: 20;
                     }
-                    height: 45;
-                    spacing: 12;
+                    height: 60;
+                    spacing: 16;
                     Text{
                         anchors.verticalCenter: parent.verticalCenter;
+                        font.pixelSize: 24;
                         text: qsTr("Details");
                     }
                     Image{
                         anchors.verticalCenter: parent.verticalCenter;
-                        sourceSize: Qt.size(20, 20);
+                        sourceSize: Qt.size(27, 27);
                         smooth: true;
                         source: "../../pic/icon-m-toolbar-next.png";
                     }
@@ -119,38 +127,39 @@ MyPage{
                 }
             }
             MyListItem{
-                height: videosmodel.count==0 ? 0 : 105;
+                height: videosmodel.count==0 ? 0 : 140;
                 visible: videosmodel.count != 0;
                 //enabled: false;
                 Row{
-                    spacing: 12;
-                    height: 45;
+                    spacing: 16;
+                    height: 60;
                     Rectangle{
-                        height: 45;
-                        width: 5;
+                        height: 60;
+                        width: 7;
                         color: "#06a7e1";
                     }
                     Text {
                         text: qsTr("Choose episode");
-                        font.pixelSize: 18
+                        font.pixelSize: 24
                         anchors.verticalCenter: parent.verticalCenter;
                     }
                 }
                 Row{
                     anchors{
                         right: parent.right;
-                        rightMargin: 15;
+                        rightMargin: 20;
                     }
-                    height: 45;
-                    spacing: 12;
+                    height: 60;
+                    spacing: 16;
                     Text{
                         anchors.verticalCenter: parent.verticalCenter;
                         //text: qsTr("Updated to Episode ") + totalVideo;
+                        font.pixelSize: 24
                         text: totalVideo;
                     }
                     Image{
                         anchors.verticalCenter: parent.verticalCenter;
-                        sourceSize: Qt.size(20, 20);
+                        sourceSize: Qt.size(27, 27);
                         smooth: true;
                         source: "../../pic/icon-m-toolbar-next.png";
                     }
@@ -158,12 +167,12 @@ MyPage{
                 ListView{
                     anchors{
                         top: parent.top;
-                        topMargin: 45;
+                        topMargin: 60;
                         left: parent.left;
                         right: parent.right;
                     }
                     clip: true;
-                    height: 60;
+                    height: 80;
                     orientation: ListView.Horizontal;
                     model: videosmodel;
                     delegate: EpisodeComponent{}
@@ -178,51 +187,52 @@ MyPage{
                     id: userAvatar;
                     anchors{
                         left: parent.left;
-                        leftMargin: 15;
+                        leftMargin: 20;
                         verticalCenter: parent.verticalCenter;
                     }
-                    sourceSize: Qt.size(45, 45);
+                    sourceSize: Qt.size(60, 60);
                 }
                 Text{
                     anchors{
                         left: userAvatar.right;
-                        leftMargin: 12;
+                        leftMargin: 16;
                         verticalCenter: parent.verticalCenter;
                     }
+                    font.pixelSize: 24
                     text: userName;
-                    Component.onCompleted: console.log("text pix:" + font.pixelSize)
                 }
             }
             MyListItem{
-                height: 45 + relatevideo.height;
+                height: 60 + relatevideo.height;
                 Row{
-                    spacing: 12;
-                    height: 45;
+                    spacing: 16;
+                    height: 60;
                     Rectangle{
-                        height: 45;
-                        width: 5;
+                        height: 60;
+                        width: 7;
                         color: "#06a7e1";
                     }
                     Text {
                         text: qsTr("Relate");
-                        font.pixelSize: 18
+                        font.pixelSize: 24
                         anchors.verticalCenter: parent.verticalCenter;
                     }
                 }
                 Row{
                     anchors{
                         right: parent.right;
-                        rightMargin: 15;
+                        rightMargin: 20;
                     }
-                    height: 45;
-                    spacing: 12;
+                    height: 60;
+                    spacing: 16;
                     Text{
                         anchors.verticalCenter: parent.verticalCenter;
+                        font.pixelSize: 24
                         text: qsTr("More ");
                     }
                     Image{
                         anchors.verticalCenter: parent.verticalCenter;
-                        sourceSize: Qt.size(20, 20);
+                        sourceSize: Qt.size(27, 27);
                         smooth: true;
                         source: "../../pic/icon-m-toolbar-next.png";
                     }
@@ -233,7 +243,7 @@ MyPage{
                         left: parent.left;
                         right: parent.right;
                         top: parent.top;
-                        topMargin: 45;
+                        topMargin: 60;
                     }
                     columns: 3;
                     Repeater{
@@ -257,13 +267,13 @@ MyPage{
             bottom: parent.bottom;
             topMargin: videoplayer.height;
         }
-        width: 360;
+        width: 480;
         states: [
             State{
                 name: "";
                 PropertyChanges{
                     target: loader;
-                    anchors.leftMargin: 360;
+                    anchors.leftMargin: 480;
                 }
             },
             State{

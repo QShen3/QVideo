@@ -47,3 +47,4 @@ rcc/
 Icon
 # Thumbnails
 ._*
+*.o

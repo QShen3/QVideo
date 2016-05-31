@@ -34,6 +34,9 @@ OTHER_FILES += \
 folder_symbian3.source = qml/Symbian
 folder_symbian3.target = qml
 
+folder_meego.source = qml/Meego
+folder_meego.target = qml
+
 folder_js.source = qml/JavaScript
 folder_js.target = qml
 
@@ -84,16 +87,20 @@ symbian{
     message(Symbian build)
 }
 
-contains(MEEGO_EDITION,harmattan){
+contains(MEEGO_EDITION, harmattan){
     DEFINES += Q_OS_HARMATTAN
-    CONFIG += qdeclarative-boostable meegotouch videosuiteinterface-maemo-meegotouch
+    CONFIG += qdeclarative-boostable meegotouch videosuiteinterface-maemo-meegotouch mobility
+    MOBILITY += multimedia systeminfo
+
+    VERSION = 0.1.0
+    DEFINES += VER=\\\"$$VERSION\\\"
 
     #splash.files = splash/splash.png
-    #splash.path = /opt/tbclient/splash
+    #splash.path = /opt/qvideo/splash
     #INSTALLS += splash
 
-    #RESOURCES += Meego.qrc
-    DEPLOYMENTFOLDERS +=  folder_JS folder_Meego folder_pic
+    RESOURCES += Meego.qrc
+    DEPLOYMENTFOLDERS +=  folder_js folder_meego folder_pic
 
     OTHER_FILES += \
         qtc_packaging/debian_harmattan/rules \

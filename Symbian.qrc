@@ -1,52 +1,46 @@
 <RCC>
     <qresource prefix="/" lang="qml">
+        <file>qml/Symbian/AboutPage.qml</file>
         <file>qml/Symbian/HomePage.qml</file>
+        <file>qml/Symbian/LicensePage.qml</file>
         <file>qml/Symbian/main.qml</file>
+        <file>qml/Symbian/SettingPage.qml</file>
         <file>qml/Symbian/BaseComponent/Corners.qml</file>
         <file>qml/Symbian/BaseComponent/Head.qml</file>
         <file>qml/Symbian/BaseComponent/ListRect.qml</file>
         <file>qml/Symbian/BaseComponent/LoadingIndicator.qml</file>
-        <file>qml/Symbian/BaseComponent/MyPage.qml</file>
-        <file>qml/Symbian/BaseComponent/SignalCenter.qml</file>
         <file>qml/Symbian/BaseComponent/MainButton.qml</file>
-        <file>qml/pic/Poster_Shadow_01.png</file>
-        <file>qml/pic/Poster_Shadow_03.png</file>
+        <file>qml/Symbian/BaseComponent/MyListHeading.qml</file>
+        <file>qml/Symbian/BaseComponent/MyListItem.qml</file>
+        <file>qml/Symbian/BaseComponent/MyPage.qml</file>
+        <file>qml/Symbian/BaseComponent/MyToolBarLayout.qml</file>
+        <file>qml/Symbian/BaseComponent/SignalCenter.qml</file>
+        <file>qml/Symbian/BaseComponent/SliderView.qml</file>
+        <file>qml/Symbian/BaseComponent/VolumeIndicator.qml</file>
+        <file>qml/Symbian/Dialog/FirstOpenDialog.qml</file>
+        <file>qml/Symbian/Dialog/MessageDialog.qml</file>
+        <file>qml/Symbian/Dialog/NewVersionDialog.qml</file>
+        <file>qml/Symbian/Youku/DetailPage.qml</file>
+        <file>qml/Symbian/Youku/MainPage.qml</file>
+        <file>qml/Symbian/Youku/SearchPage.qml</file>
+        <file>qml/Symbian/Youku/SubPage.qml</file>
+        <file>qml/Symbian/Youku/Component/SearchField.qml</file>
+        <file>qml/Symbian/Youku/Component/SubPageType1.qml</file>
+        <file>qml/Symbian/Youku/Component/SubPageType4.qml</file>
+        <file>qml/Symbian/Youku/Component/VideoPlayer.qml</file>
         <file>qml/Symbian/Youku/Delegate/BoxComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/EpisodeComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/FilterComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/HotWordComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/RelateComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SearchProgramComponent.qml</file>
+        <file>qml/Symbian/Youku/Delegate/SearchVideoComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/SliderComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/SubPageComponent.qml</file>
         <file>qml/Symbian/Youku/Delegate/TagComponent.qml</file>
-        <file>qml/Symbian/Youku/Component/SubPageType1.qml</file>
-        <file>qml/Symbian/Youku/Component/SubPageType4.qml</file>
-        <file>qml/Symbian/BaseComponent/SliderView.qml</file>
-        <file>qml/Symbian/Youku/Dialog/FilterDialog.qml</file>
-        <file>qml/Symbian/Youku/DetailPage.qml</file>
-        <file>qml/Symbian/Youku/Component/VideoPlayer.qml</file>
-        <file>qml/Symbian/BaseComponent/MyListItem.qml</file>
-        <file>qml/Symbian/Youku/Delegate/EpisodeComponent.qml</file>
-        <file>qml/Symbian/Youku/Delegate/RelateComponent.qml</file>
-        <file>qml/Symbian/Youku/MainPage.qml</file>
-        <file>qml/Symbian/Youku/SubPage.qml</file>
-        <file>qml/pic/Toolbar.svg</file>
-        <file>qml/Symbian/BaseComponent/MyToolBarLayout.qml</file>
-        <file>qml/Symbian/SettingPage.qml</file>
-        <file>qml/pic/FullScreen.svg</file>
-        <file>qml/pic/miniScreen.svg</file>
-        <file>qml/Symbian/BaseComponent/VolumeIndicator.qml</file>
-        <file>qml/pic/volume.svg</file>
-        <file>qml/Symbian/Youku/DetailPage/VideoInfo.qml</file>
         <file>qml/Symbian/Youku/DetailPage/EpisodeList.qml</file>
         <file>qml/Symbian/Youku/DetailPage/RelateList.qml</file>
-        <file>qml/Symbian/Youku/Delegate/HotWordComponent.qml</file>
-        <file>qml/Symbian/Youku/SearchPage.qml</file>
-        <file>qml/Symbian/Youku/Component/SearchField.qml</file>
-        <file>qml/Symbian/Youku/Delegate/SearchProgramComponent.qml</file>
-        <file>qml/Symbian/Youku/Delegate/SearchVideoComponent.qml</file>
-        <file>qml/Symbian/BaseComponent/MyListHeading.qml</file>
-        <file>qml/Symbian/AboutPage.qml</file>
-        <file>qml/Symbian/LicensePage.qml</file>
-        <file>qml/Symbian/Dialog/FirstOpenDialog.qml</file>
-        <file>qml/Symbian/Dialog/NewVersionDialog.qml</file>
-        <file>qml/Symbian/Dialog/MessageDialog.qml</file>
+        <file>qml/Symbian/Youku/DetailPage/VideoInfo.qml</file>
+        <file>qml/Symbian/Youku/Dialog/FilterDialog.qml</file>
     </qresource>
 </RCC>

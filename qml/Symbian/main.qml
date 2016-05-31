@@ -33,7 +33,7 @@ PageStackWindow{
         id: volumeIndicator
 
         function initVolume() {
-            console.log("volume: " + deviceInfo.voiceRingtoneVolume);
+            //console.log("volume: " + deviceInfo.voiceRingtoneVolume);
             if (deviceInfo.voiceRingtoneVolume == 0) {
                 saveVolumeListener.target = null
                 volumeIndicator.volume = 0

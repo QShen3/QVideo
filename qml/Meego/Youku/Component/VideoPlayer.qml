@@ -135,7 +135,7 @@ Item{
                 size: "large";
             }
 
-            visible: (parent.status == Video.Buffering) || (parent.status == Video.Stalled);
+            visible: (parent.status == Video.Buffering) || (parent.status == Video.Stalled) || (parent.status == Video.Loading);
             running: visible;
         }
     }
@@ -243,7 +243,7 @@ Item{
                 }
                 ToolIcon{
                     anchors.verticalCenter: parent.verticalCenter;
-                    iconId: video.playing ? "toolbar-mediacontrol-pause" : "toolbar-mediacontrol-play";
+                    iconId: video.paused ? "toolbar-mediacontrol-play" : "toolbar-mediacontrol-pause";
                     onClicked: video.paused ? video.play() : video.pause();
                 }
                 ToolIcon{

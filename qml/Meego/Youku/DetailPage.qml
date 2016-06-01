@@ -396,6 +396,18 @@ MyPage{
                                        "video_profile": qsTr("General quality"),
                                    })
             }
+            else if(obj.data.stream[i].stream_type === "flv"){
+                streammodel.append({
+                                       "stream_type": "flv",
+                                       "video_profile": qsTr("General quality"),
+                                   })
+            }
+            else if(obj.data.stream[i].stream_type === "flvhd"){
+                streammodel.append({
+                                       "stream_type": "flvhd",
+                                       "video_profile": qsTr("General quality"),
+                                   })
+            }
             else if(obj.data.stream[i].stream_type === "mp4" || obj.data.stream[i].stream_type === "mp4hd"){
                 streammodel.append({
                                        "stream_type": "mp4",
@@ -428,9 +440,9 @@ MyPage{
                 }
                 else{
                     for(var i=0; i<streammodel.count; i++){
-                        if(streammodel.get(i).stream_type === "3gphd"){
-                            var command = "get-video " + "3gphd" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
-                            currentFormat = "3gphd";
+                        if(streammodel.get(i).stream_type === "3gphd" || streammodel.get(i).stream_type === "flv" || streammodel.get(i).stream_type === "flvhd"){
+                            var command = "get-video " + streammodel.get(i).stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                            currentFormat = streammodel.get(i).stream_type;
                             Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                             break;
                         }
@@ -462,9 +474,9 @@ MyPage{
             }
             else{
                 for(var i=0; i<streammodel.count; i++){
-                    if(streammodel.get(i).stream_type === "3gphd"){
+                    if(streammodel.get(i).stream_type === "3gphd"  || streammodel.get(i).stream_type === "flv" || streammodel.get(i).stream_type === "flvhd"){
                         var command = "get-video " + "3gphd" + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
-                        currentFormat = "3gphd";
+                        currentFormat = streammodel.get(i).stream_type;
                         Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
                         break;
                     }

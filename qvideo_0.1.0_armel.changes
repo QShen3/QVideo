@@ -15,9 +15,9 @@ Changes:
  .
    * <Add change description here>
 Checksums-Sha1: 
- 752a993e68f4b5e62d80dcb66593b76ae47e4eab 351120 qvideo_0.1.0_armel.deb
+ a1d131186fb3051dfabd65121e98553c18e720ba 391668 qvideo_0.1.0_armel.deb
 Checksums-Sha256: 
- cf9289b2f9d762da9d53b9a96badfa88754d420a8379a9d09f79822d616f7fe7 351120 qvideo_0.1.0_armel.deb
+ 39bb63d4e28cbca21e1b85f2b9742e09020fc04badcca5e6d1ddeb4aae11f915 391668 qvideo_0.1.0_armel.deb
 Files: 
- 034304ac06e35cb05029db0c7cdf1820 351120 user/other optional qvideo_0.1.0_armel.deb
+ b92beac157706c296f7352129d332d5f 391668 user/other optional qvideo_0.1.0_armel.deb
 Maemo-Display-Name: QVideo

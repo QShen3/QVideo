@@ -62,6 +62,7 @@ Item{
     transitions: [
         Transition{
             NumberAnimation{
+                duration: 200;
                 properties: "width,height,rotation";
             }
         }
@@ -354,7 +355,7 @@ Item{
         }
     }
 
-    ContextMenu{
+    /*ContextMenu{
         id: streammenu;
         //rotation: 90;
         //content.rotation: 90;
@@ -379,6 +380,27 @@ Item{
         onStatusChanged: {
             if(status === DialogStatus.Closed){
                 app.forceActiveFocus();
+            }
+        }
+    }*/
+    PlayerMenu{
+        id: streammenu;
+        model: streammodel;
+        delegate: Text{
+            text: model.video_profile;
+            font.pixelSize: 36;
+            color: "white";
+            MouseArea{
+                anchors.fill: parent;
+                onClicked: {
+                    var command = "get-video " + model.stream_type + " http://v.youku.com/v_show/id_" + currentVideoId + ".html";
+                    if(currentFormat !== model.stream_type){
+                        currentFormat = model.stream_type;
+                        isNewVideo = false;
+                        Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
+                    }
+                    streammenu.close();
+                }
             }
         }
     }

@@ -95,12 +95,12 @@ contains(MEEGO_EDITION, harmattan){
     VERSION = 0.1.0
     DEFINES += VER=\\\"$$VERSION\\\"
 
-    #splash.files = splash/splash.png
-    #splash.path = /opt/qvideo/splash
-    #INSTALLS += splash
+    splash.files = qml/pic/splash.png
+    splash.path = /opt/QVideo/splash
+    INSTALLS += splash
 
     RESOURCES += Meego.qrc
-    DEPLOYMENTFOLDERS +=  folder_js folder_meego folder_pic
+    #DEPLOYMENTFOLDERS +=  folder_js folder_meego folder_pic
 
     OTHER_FILES += \
         qtc_packaging/debian_harmattan/rules \

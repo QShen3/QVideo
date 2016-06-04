@@ -19,7 +19,13 @@ void Settings::loadSettings()
 {
     qDebug() << "Loading settings...";
     if(settings){
+#ifdef Q_OS_SYMBIAN
         m_preferFormat = settings->value("preferFormat", "mp4").toString();
+#elif defined(Q_OS_HARMATTAN)
+        m_preferFormat = settings->value("preferFormat", "3gphd").toString();
+#else
+        m_preferFormat = settings->value("preferFormat", "mp4").toString();
+#endif
         m_autoPlay = settings->value("autoPlay", true).toBool();
         m_autoCheckNewVersion = settings->value("autoCheckNewVersion", true).toBool();
         m_version = settings->value("version", "0.0.0").toString();

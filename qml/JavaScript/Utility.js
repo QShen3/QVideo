@@ -4,12 +4,12 @@ Qt.include("Request.js");
 function Utility() {
 
     this.getVersion = function(onSuccess, onFailure){
-             var request = new Request("http://t.zccrs.com/qvideo/version", "GET");
+             var request = new Request("http://q.zccrs.com/qvideo/version", "GET");
              request.sendRequest(onSuccess, onFailure);
          }
 
     this.getMessage = function(onSuccess, onFailure){
-             var request = new Request("http://t.zccrs.com/qvideo/message", "GET");
+             var request = new Request("http://q.zccrs.com/qvideo/message", "GET");
              request.sendRequest(onSuccess, onFailure);
          }
 }

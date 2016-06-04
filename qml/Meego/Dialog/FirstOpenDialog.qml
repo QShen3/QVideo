@@ -23,7 +23,7 @@ Dialog{
             color: "white";
             wrapMode: Text.WordWrap;
             //text: qsTr("2015.11.15\nV 0.7.0\n\n1.Add support for Tencent Weibo\n2.Some optimization");
-            text: qsTr("Thank you for using this software.There are something need to be explained at first:\n1.This software only support Youku now.But I will add support to other sites in future.\n2.These sites usually change their algorithm of extracting video url.So I put the extrctor on my Web server.Once there are some unexpected things happen,I will stop the server.\n3.Because of the limited of Symbian system,the video will flash when you flick the screen.I haven't find any solution now.\n4.Auto playing can be closed in settings.");
+            text: qsTr("Thank you for using this software.There are something need to be explained at first:\n1.This software only support Youku now.But I will add support to other sites in future.\n2.These sites usually change their algorithm of extracting video url.So I put the extrctor on my Web server.Once there are some unexpected things happen,I will stop the server.\n3.Because of the limited of decoder,some high quality video may Drop frame when playing.I haven't find any solution now.\n4.Auto playing can be closed in settings.");
         }
     }
 }

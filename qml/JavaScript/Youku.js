@@ -133,7 +133,7 @@ function Youku(){
          }
 
     this.getUrls = function(command, onSuccess, onFailure){
-             var request = new Request("http://t.zccrs.com/", "GET");
+             var request = new Request("http://q.zccrs.com/", "GET");
              request.setQuery({
                                   action: "exec",
                                   command: command

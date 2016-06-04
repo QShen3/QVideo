@@ -75,8 +75,8 @@ PageStackWindow{
         var obj = JSON.parse(oritxt);
         var timeStamp = Math.round(new Date().getTime()/1000);
 
-        if(obj.symbian.hasMessage){
-            if(timeStamp < obj.symbian.endDate){
+        if(obj.meego.hasMessage){
+            if(timeStamp < obj.meego.endDate){
                 messagedialog.openDialog(obj.meego.message);
             }
         }

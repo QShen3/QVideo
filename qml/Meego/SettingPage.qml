@@ -106,12 +106,12 @@ MyPage{
     function loadVersionInfo(oritxt){
         var obj = JSON.parse(oritxt);
 
-        if(Utility.versionStringToInt(obj.symbian.version) > Utility.versionStringToInt(appVersion)){
+        if(Utility.versionStringToInt(obj.meego.version) > Utility.versionStringToInt(appVersion)){
             if(utility.getLocale().substring(0, 2) === "zh"){
-                newversiondialog.openDialog(obj.symbian.changeLog.zh, obj.symbian.url);
+                newversiondialog.openDialog(obj.meego.changeLog.zh, obj.meego.url);
             }
             else{
-                newversiondialog.openDialog(obj.symbian.changeLog.en, obj.symbian.url);
+                newversiondialog.openDialog(obj.meego.changeLog.en, obj.meego.url);
             }
         }
         else{

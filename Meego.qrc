@@ -40,5 +40,6 @@
         <file>qml/Meego/Youku/DetailPage/RelateList.qml</file>
         <file>qml/Meego/Youku/DetailPage/VideoInfo.qml</file>
         <file>qml/Meego/Youku/Dialog/FilterDialog.qml</file>
+        <file>qml/Meego/Youku/Component/PlayerMenu.qml</file>
     </qresource>
 </RCC>

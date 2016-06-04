@@ -88,6 +88,14 @@
         <source>Filter</source>
         <translation>筛选</translation>
     </message>
+    <message>
+        <source>OK</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <source>Cancle</source>
+        <translation>取消</translation>
+    </message>
 </context>
 <context>
     <name>FirstOpenDialog</name>
@@ -109,6 +117,18 @@
 1.软件目前只支持优酷，其它的网站后面会陆续添加。
 2.为了应对这些网站对视频解析算法的频繁更换，同时也是为了出现意外情况后可以方便停止软件的使用，解析部分放到了自己的服务器上面。
 3.由于Symbian系统的限制，在播放页面的 小窗口模式下划屏视频会有闪烁现象，这一点暂时没有解决方案。
+4.自动播放可以在设置中关闭。</translation>
+    </message>
+    <message>
+        <source>Thank you for using this software.There are something need to be explained at first:
+1.This software only support Youku now.But I will add support to other sites in future.
+2.These sites usually change their algorithm of extracting video url.So I put the extrctor on my Web server.Once there are some unexpected things happen,I will stop the server.
+3.Because of the limited of decoder,some high quality video may Drop frame when playing.I haven&apos;t find any solution now.
+4.Auto playing can be closed in settings.</source>
+        <translation>感谢大家使用该软件，在此先对一些问题进行说明：
+1.软件目前只支持优酷，其它的网站后面会陆续添加。
+2.为了应对这些网站对视频解析算法的频繁更换，同时也是为了出现意外情况后可以方便停止软件的使用，解析部分放到了自己的服务器上面。
+3.由于解码器的限制，一些高清视频播放时会有掉帧，这一点暂时没有解决方案。
 4.自动播放可以在设置中关闭。</translation>
     </message>
 </context>
@@ -179,7 +199,7 @@
     <name>RelateList</name>
     <message>
         <source>Relate</source>
-        <translation>关于</translation>
+        <translation>相关</translation>
     </message>
     <message>
         <source>No more avaliable!</source>

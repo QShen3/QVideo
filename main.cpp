@@ -52,7 +52,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     viewer.rootContext()->setContextProperty("appVersion", app.applicationVersion());
 
 #ifdef Q_OS_SYMBIAN
-    QSplashScreen *splash = new QSplashScreen(QPixmap(":/qml/pic/splash.png"));
+    QSplashScreen *splash = new QSplashScreen(QPixmap(":/qml/pic/splash_symbian.png"));
     splash->show();
     splash->raise();
 

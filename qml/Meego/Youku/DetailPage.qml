@@ -369,18 +369,9 @@ MyPage{
             }
         }
         Youku.youku.getPlay(currentVideoId, loadStreams, showVideosFailureInfo);
-        /*if(settings.autoPlay){
-            if(settings.preferFormat == "mp4"){
-
-            }
-
-            var command = "you-get --json --format=mp4 http://v.youku.com/v_show/id_" + currentVideoId + ".html";
-            Youku.youku.getUrls(command, loadUrls, showVideosFailureInfo);
-        }*/
     }
 
     function loadStreams(oritxt){
-        //console.log(oritxt);
         var obj = JSON.parse(oritxt);
 
         if(obj.e.code !== 0){

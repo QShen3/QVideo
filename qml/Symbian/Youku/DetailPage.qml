@@ -190,6 +190,7 @@ MyPage{
                         verticalCenter: parent.verticalCenter;
                     }
                     text: userName;
+                    Component.onCompleted: console.log("text pix:" + font.pixelSize)
                 }
             }
             MyListItem{

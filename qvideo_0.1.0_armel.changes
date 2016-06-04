@@ -1,0 +1,23 @@
+Format: 1.8
+Date: Sun, 29 May 2016 20:01:33 +0800
+Source: qvideo
+Binary: qvideo
+Architecture: armel
+Version: 0.1.0
+Distribution: unstable
+Urgency: low
+Maintainer: unknown <>
+Changed-By: unknown <>
+Description: 
+ qvideo     - QVideo
+Changes: 
+ qvideo (0.1.0) unstable; urgency=low
+ .
+   * <Add change description here>
+Checksums-Sha1: 
+ e68849a229648e986f035cccabc10c4b46401d0f 288144 qvideo_0.1.0_armel.deb
+Checksums-Sha256: 
+ 0d37b07c570f9a991b2f59889411f58585eb54799c00ac7fdbd2d794a34e2691 288144 qvideo_0.1.0_armel.deb
+Files: 
+ e93f1b189475b88074ca9e5dd20f98ab 288144 user/other optional qvideo_0.1.0_armel.deb
+Maemo-Display-Name: QVideo

@@ -47,3 +47,5 @@ rcc/
 Icon
 # Thumbnails
 ._*
+*.o
+QVideo

@@ -1,0 +1,40 @@
+// import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
+import QtQuick 1.1
+
+Image{
+    width: 480;
+    //height: 234;
+    //height: 360 / sourceSize.width * sourceSize.height;
+    height: 270;
+    //sourceSize: Qt.size(360, 202.5);
+    source: model.img;
+    clip: true;
+    fillMode: Image.PreserveAspectCrop;
+    Text{
+        anchors{
+            left: parent.left;
+            bottom: parent.bottom;
+            margins: 16;
+        }
+        text: model.title;
+        font.pixelSize: 28;
+        color: "white";
+    }
+    Image{
+        source: "../../../pic/vip_icon_corner_free.png";
+        sourceSize: Qt.size(60, 60);
+        height: sourceSize.height;
+        width: sourceSize.width;
+        visible: model.paid === 1;
+    }
+    MouseArea{
+        anchors.fill: parent;
+        onClicked: {
+            if(model.is_vv === 1){
+                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title, currentVideoId: model.tid});
+            }
+            else
+                pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title});
+        }
+    }
+}

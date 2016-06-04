@@ -1,39 +1,48 @@
 <RCC>
     <qresource prefix="/">
+        <file>i18n/QVideo_zh.qm</file>
+        <file>i18n/QVideo_zh.ts</file>
+        <file>License/ThirdPart/Qt_4.7.4_License</file>
+        <file>License/ThirdPart/Qt_Quick_Components_License</file>
+        <file>License/ThirdPart/You-Get_License</file>
+        <file>qml/JavaScript/Base64.js</file>
+        <file>qml/JavaScript/MD5.js</file>
+        <file>qml/JavaScript/Request.js</file>
+        <file>qml/JavaScript/Utility.js</file>
+        <file>qml/JavaScript/Youku.js</file>
+        <file>qml/pic/avatar.png</file>
         <file>qml/pic/close_inverted.svg</file>
         <file>qml/pic/Corner-l-b.png</file>
         <file>qml/pic/Corner-l-t.png</file>
         <file>qml/pic/Corner-r-b.png</file>
         <file>qml/pic/Corner-r-t.png</file>
+        <file>qml/pic/favicon.ico</file>
+        <file>qml/pic/filter.svg</file>
+        <file>qml/pic/FullScreen.svg</file>
         <file>qml/pic/Headerbar.svg</file>
         <file>qml/pic/HeadShadow.png</file>
+        <file>qml/pic/icon-m-toolbar-next.png</file>
         <file>qml/pic/letv_logo.svg</file>
         <file>qml/pic/main-button.svg</file>
+        <file>qml/pic/miniScreen.svg</file>
+        <file>qml/pic/Poster_Shadow_01.png</file>
+        <file>qml/pic/Poster_Shadow_03.png</file>
         <file>qml/pic/PPTV_logo.svg</file>
         <file>qml/pic/pull_down.svg</file>
         <file>qml/pic/Qiyi_logo.svg</file>
         <file>qml/pic/QVideo80.png</file>
+        <file>qml/pic/splash.png</file>
+        <file>qml/pic/tbclient.svg</file>
+        <file>qml/pic/Toolbar.svg</file>
         <file>qml/pic/tudou_logo.svg</file>
+        <file>qml/pic/vip_icon_corner_free.png</file>
+        <file>qml/pic/volume.svg</file>
+        <file>qml/pic/Weibo_logo.svg</file>
         <file>qml/pic/Winnow_button.svg</file>
         <file>qml/pic/youku_logo.svg</file>
-        <file>qml/JavaScript/Base64.js</file>
-        <file>qml/JavaScript/Request.js</file>
-        <file>qml/JavaScript/Youku.js</file>
-        <file>qml/pic/icon-m-toolbar-next.png</file>
-        <file>qml/JavaScript/MD5.js</file>
-        <file>qml/pic/vip_icon_corner_free.png</file>
-        <file>qml/pic/filter.svg</file>
         <file>QVideo.svg</file>
-        <file>qml/pic/avatar.png</file>
-        <file>qml/pic/favicon.ico</file>
-        <file>qml/pic/tbclient.svg</file>
-        <file>qml/pic/Weibo_logo.svg</file>
-        <file>qml/pic/splash.png</file>
-        <file>License/ThirdPart/Qt_4.7.4_License</file>
-        <file>License/ThirdPart/Qt_Quick_Components_License</file>
-        <file>License/ThirdPart/You-Get_License</file>
-        <file>qml/JavaScript/Utility.js</file>
-        <file>i18n/QVideo_zh.qm</file>
-        <file>i18n/QVideo_zh.ts</file>
+        <file>QVideo64.png</file>
+        <file>QVideo80.png</file>
+        <file>qml/pic/splash_symbian.png</file>
     </qresource>
 </RCC>

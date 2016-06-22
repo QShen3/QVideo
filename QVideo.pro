@@ -100,7 +100,7 @@ contains(MEEGO_EDITION, harmattan){
     INSTALLS += splash
 
     RESOURCES += Meego.qrc
-    #DEPLOYMENTFOLDERS +=  folder_js folder_meego folder_pic
+    DEPLOYMENTFOLDERS +=  folder_js folder_meego folder_pic
 
     OTHER_FILES += \
         qtc_packaging/debian_harmattan/rules \
@@ -120,25 +120,61 @@ contains(MEEGO_EDITION, harmattan){
 win32-g++{
     RESOURCES += Win32.qrc
 
+    VERSION = 0.1.0
+    DEFINES += VER=\\\"$$VERSION\\\"
+
     OTHER_FILES += \
         qml/Win32/*.qml \
         qml/Win32/BaseComponent/*.qml \
         qml/Win32/Delegate/*.qml \
-        qml/Win32/Dialog/*.qml
+        qml/Win32/Dialog/*.qml \
+        qml/Win32/Youku/*.qml \
+        qml/Win32/Youku/MainPage/*.qml \
+        qml/Win32/Youku/Delegate/*.qml
 
     include(deployment.pri)
 
-    message(Win32 build)
+    message(Win32 Mingw build)
+}
+
+winrt{
+    RESOURCES += WinRT.qrc
+
+    VERSION = 0.1.0
+    DEFINES += VER=\\\"$$VERSION\\\"
+
+    OTHER_FILES += \
+        qml/WinRT/*.qml \
+        qml/WinRT/BaseComponent/*.qml \
+        qml/WinRT/Delegate/*.qml \
+        qml/WinRT/Dialog/*.qml \
+        qml/WinRT/Youku/*.qml \
+        qml/WinRT/Youku/MainPage/*.qml \
+        qml/WinRT/Youku/SubPage/*.qml \
+        qml/WinRT/Youku/Delegate/*.qml
+
+    include(deployment.pri)
+
+    message(WinRT build)
 }
 
 android{
+    QT += androidextras
+
     RESOURCES += Android.qrc      #Android qml
+
+    VERSION = 0.1.0
+    DEFINES += VER=\\\"$$VERSION\\\"
 
     OTHER_FILES += \
         qml/Android/*.qml \
         qml/Android/BaseComponent/*.qml \
         qml/Android/Delegate/*.qml \
-        qml/Android/Dialog/*.qml
+        qml/Android/Dialog/*.qml \
+        qml/Android/Youku/*.qml \
+        qml/Android/Youku/MainPage/*.qml \
+        qml/Android/Youku/SubPage/*.qml \
+        qml/Android/Youku/Delegate/*.qml
 
     DISTFILES += \
         android/AndroidManifest.xml \
@@ -147,7 +183,8 @@ android{
         android/res/values/libs.xml \
         android/build.gradle \
         android/gradle/wrapper/gradle-wrapper.properties \
-        android/gradlew.bat
+        android/gradlew.bat \
+        android/src/com/qshen/qvideo/*.java
 
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 

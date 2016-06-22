@@ -26,11 +26,6 @@ Component{
                         source: "../../../pic/Poster_Shadow_01.png";
                         z: 2;
                     }
-                    /*Image{
-                        anchors.bottom: parent.bottom;
-                        source: "../../../pic/Poster_Shadow_03.png";
-                        z: 2;
-                    }*/
                     Image{
                         anchors.top: parent.bottom;
                         source: "../../../pic/HeadShadow.png"

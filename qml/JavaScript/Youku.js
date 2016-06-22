@@ -1,5 +1,5 @@
 .pragma library
-Qt.include("Base64.js");
+//Qt.include("Base64.js");
 Qt.include("MD5.js")
 Qt.include("Request.js");
 
@@ -13,18 +13,28 @@ function Youku(){
     //new api
     this.getTag = function(onSuccess, onFailure) {
              var request = new Request("http://api.mobile.youku.com/layout/android5_0/channel/tags", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/layout/android5_0/channel/tags:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
-                                  guid: guid
+                                  guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_
                               });
              request.sendRequest(onSuccess, onFailure);
          }
 
     this.getSubTabs = function(cid, onSuccess, onFailure) {
              var request = new Request("http://api.mobile.youku.com/layout/android/channel/subtabs", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/layout/android/channel/subtabs:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   cid: cid
                               });
              request.sendRequest(onSuccess, onFailure);
@@ -32,18 +42,28 @@ function Youku(){
 
     this.getFilter = function(cid, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/layout/android3_0/channel/filter", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/layout/android3_0/channel/filter:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   cid: cid
                               });
              request.sendRequest(onSuccess, onFailure);
          }
     this.getSubPage = function(cid, sub_channel_id, sub_channel_type, filter, ob, pg, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/layout/android/channel/subpage", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/layout/android/channel/subpage:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   cid: cid,
                                   sub_channel_id: sub_channel_id,
                                   sub_channel_type: sub_channel_type,
@@ -55,9 +75,14 @@ function Youku(){
          }
     this.getDetail = function(format, id, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/layout/android5_0/play/detail", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/layout/android5_0/play/detail:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   format: format,
                                   id: id
                               });
@@ -65,9 +90,14 @@ function Youku(){
          }
     this.getVideos = function(id, fields, order, pg, pz, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/shows/" + id + "/reverse/videos", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/shows/" + id + "/reverse/videos:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   fields: fields,
                                   order: order,
                                   pg: pg,
@@ -76,7 +106,7 @@ function Youku(){
              request.sendRequest(onSuccess, onFailure);
          }
     this.getPlay = function(vid, onSuccess, onFailure){
-             var request = new Request("http://play.youku.com/play/get.json", "GET");
+             var request = new Request("http://play.youku.com/play/get.json", "GET");            
              request.setQuery({
                                   vid: vid,
                                   ct: "10"
@@ -86,9 +116,14 @@ function Youku(){
 
     this.getRelate = function(id, pg, pz, onSuccess, onFailure){
              var request = new Request("http://api.mobile.youku.com/common/shows/relate", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/common/shows/relate:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   id: id,
                                   pg: pg,
                                   pz: pz
@@ -97,9 +132,14 @@ function Youku(){
          }
     this.getComments = function(id, pg, pz, onSuccess, onFailure){
              var request = new Request("http://user-mobile.youku.com/videos/" + id + "/comments", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/u/s:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   pg: pg,
                                   pz: pz
                               });
@@ -107,9 +147,14 @@ function Youku(){
          }
     this.getUserinfo = function(friend, playlist_num, video_num, onSuccess, onFailure){
              var request = new Request("http://user-mobile.youku.com/user/timeline/userinfo", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/u/s:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   friend: friend,
                                   playlist_num: playlist_num,
                                   playlist_order: "published",
@@ -120,9 +165,14 @@ function Youku(){
          }
     this.getPlayorVideo_list = function(friend, type, pg, pz, onSuccess, onFailure){
              var request = new Request("http://user-mobile.youku.com/user/timeline/playorvideo/list", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/u/s:" + _t_ + ":" + skey);
              request.setQuery({
                                   pid: pid,
                                   guid: guid,
+                                  _t_: _t_,
+                                  _s_: _s_,
                                   friend: friend,
                                   type: type,
                                   pg: pg,
@@ -134,6 +184,9 @@ function Youku(){
 
     this.getUrls = function(command, onSuccess, onFailure){
              var request = new Request("http://q.zccrs.com/", "GET");
+             var _t_ = Math.round(new Date().getTime()/1000);
+             var md5 = new MD5();
+             var _s_ = md5.hex_md5("GET:/u/s:" + _t_ + ":" + skey);
              request.setQuery({
                                   action: "exec",
                                   command: command

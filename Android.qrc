@@ -1,2 +1,20 @@
-<RCC/>
-
+<RCC>
+    <qresource lang="qml" prefix="/">
+        <file>qml/Android/BaseComponent/LoadingIndicator.qml</file>
+        <file>qml/Android/BaseComponent/MainButton.qml</file>
+        <file>qml/Android/BaseComponent/SignalCenter.qml</file>
+        <file>qml/Android/HomePage.qml</file>
+        <file>qml/Android/main.qml</file>
+        <file>qml/Android/Youku/MainPage.qml</file>
+        <file>qml/Android/Youku/Delegate/TagComponent.qml</file>
+        <file>qml/Android/Youku/MainPage/ChannelTabComponent.qml</file>
+        <file>qml/Android/Youku/MainPage/MainTabComponent.qml</file>
+        <file>qml/Android/Youku/SubPage.qml</file>
+        <file>qml/Android/Youku/SubPage/Type1Component.qml</file>
+        <file>qml/Android/Youku/Delegate/SliderComponent.qml</file>
+        <file>qml/Android/BaseComponent/SliderView.qml</file>
+        <file>qml/Android/Youku/Delegate/BoxComponent.qml</file>
+        <file>qml/Android/Youku/SubPage/Type4Component.qml</file>
+        <file>qml/Android/Youku/Delegate/SubPageComponent.qml</file>
+    </qresource>
+</RCC>

@@ -67,9 +67,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #else
     QQmlApplicationEngine engine;
 
-    engine.rootContext()->setContextProperty("utility",&utility);
+    engine.rootContext()->setContextProperty("utility", &utility);
+    engine.rootContext()->setContextProperty("settings", &settings);
 #ifdef Q_OS_WIN32
     engine.load(QUrl(QStringLiteral("qrc:/qml/Win32/main.qml")));
+#elif defined(Q_OS_ANDROID)
+    //utility.getStatusBarHeight();
+    engine.load(QUrl(QStringLiteral("qrc:/qml/Android/main.qml")));
+#elif defined(Q_OS_WINRT)
+    engine.load(QUrl(QStringLiteral("qrc:/qml/WinRT/main.qml")));
 #endif
 
 #endif

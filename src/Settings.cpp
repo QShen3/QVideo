@@ -29,7 +29,10 @@ void Settings::loadSettings()
         m_autoPlay = settings->value("autoPlay", true).toBool();
         m_autoCheckNewVersion = settings->value("autoCheckNewVersion", true).toBool();
         m_version = settings->value("version", "0.0.0").toString();
+
+#ifdef Q_OS_SYMBIAN
         m_volume = settings->value("volume", 0).toInt();
+#endif
     }
     else{
         qDebug() << "settings load failed";
@@ -44,7 +47,9 @@ void Settings::saveSettings()
         settings->setValue("autoPlay", m_autoPlay);
         settings->setValue("autoCheckNewVersion", m_autoCheckNewVersion);
         settings->setValue("version", m_version);
+#ifdef Q_OS_SYMBIAN
         settings->setValue("volume", m_volume);
+#endif
     }
     else{
         qDebug() << "settings save failed...";
@@ -107,7 +112,7 @@ void Settings::setVersion(QString newVerison)
         emit versionChanged();
     }
 }
-
+#ifdef Q_OS_SYMBIAN
 int Settings::volume()
 {
     return m_volume;
@@ -120,3 +125,4 @@ void Settings::setVolume(int newVolume)
         emit volumeChanged();
     }
 }
+#endif

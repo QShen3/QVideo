@@ -13,7 +13,9 @@ class Settings : public QObject
     Q_PROPERTY(bool autoPlay READ autoPlay WRITE setAutoPlay NOTIFY autoPlayChanged)
     Q_PROPERTY(bool autoCheckNewVersion READ isAutoCheckNewVersion WRITE setAutoCheckNewVersion NOTIFY autoCheckNewVersionChanged)
     Q_PROPERTY(QString version READ version WRITE setVersion NOTIFY versionChanged)
+#ifdef Q_OS_SYMBIAN
     Q_PROPERTY(int volume READ volume WRITE setVolume NOTIFY volumeChanged)
+#endif
 
 public:
     explicit Settings(QObject *parent = 0);
@@ -25,8 +27,10 @@ public:
     bool autoPlay();
     void setAutoPlay(bool newAutoPlay);
 
+#ifdef Q_OS_SYMBIAN
     int volume();
     void setVolume(int);
+#endif
 
     bool isAutoCheckNewVersion();
     void setAutoCheckNewVersion(bool);
@@ -39,8 +43,9 @@ signals:
     void autoPlayChanged();
     void autoCheckNewVersionChanged();
     void versionChanged();
-
+#ifdef Q_OS_SYMBIAN
     void volumeChanged();
+#endif
 
 public slots:
     void loadSettings();
@@ -55,8 +60,9 @@ private:
     bool m_autoPlay;
     bool m_autoCheckNewVersion;
     QString m_version;
-
+#ifdef Q_OS_SYMBIAN
     int m_volume;
+#endif
 };
 
 #endif // SETTINGS_H

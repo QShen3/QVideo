@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/" lang="qml">
+        <file>qml/WinRT/HomePage.qml</file>
+        <file>qml/WinRT/main.qml</file>
+        <file>qml/WinRT/BaseComponent/LoadingIndicator.qml</file>
+        <file>qml/WinRT/BaseComponent/MainButton.qml</file>
+        <file>qml/WinRT/BaseComponent/SignalCenter.qml</file>
+        <file>qml/WinRT/Youku/MainPage.qml</file>
+        <file>qml/WinRT/Youku/SubPage.qml</file>
+        <file>qml/WinRT/Youku/Delegate/SliderComponent.qml</file>
+        <file>qml/WinRT/Youku/Delegate/TagComponent.qml</file>
+        <file>qml/WinRT/Youku/MainPage/ChannelTabComponent.qml</file>
+        <file>qml/WinRT/Youku/MainPage/MainTabComponent.qml</file>
+        <file>qml/WinRT/Youku/SubPage/Type1Component.qml</file>
+    </qresource>
+</RCC>

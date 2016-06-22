@@ -11,5 +11,9 @@ public:
 
     Q_INVOKABLE QString readFile(QString url);
     Q_INVOKABLE QString getLocale();
+
+
+    Q_INVOKABLE int getStatusBarHeight();
+
 };
 #endif // UTILITY_H

@@ -1,10 +1,13 @@
 <RCC>
-    <qresource lang="qml" prefix="/">
+    <qresource prefix="/" lang="qml">
         <file>qml/Win32/main.qml</file>
         <file>qml/Win32/BaseComponent/LoadingIndicator.qml</file>
         <file>qml/Win32/BaseComponent/SignalCenter.qml</file>
         <file>qml/Win32/HomePage.qml</file>
-        <file>qml/Win32/YoukuTab.qml</file>
-        <file>qml/Win32/Delegate/YoukuListItem.qml</file>
+        <file>qml/Win32/BaseComponent/MainButton.qml</file>
+        <file>qml/Win32/Youku/MainPage.qml</file>
+        <file>qml/Win32/Youku/MainPage/ChannelTabComponent.qml</file>
+        <file>qml/Win32/Youku/MainPage/MainTabComponent.qml</file>
+        <file>qml/Win32/Youku/Delegate/TagComponent.qml</file>
     </qresource>
 </RCC>

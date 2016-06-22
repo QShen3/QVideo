@@ -3,6 +3,10 @@
 #include <QDir>
 #include <QDesktopServices>
 #include <QUrl>
+
+#ifdef Q_OS_ANDROID
+#include <QtAndroidExtras>
+#endif
 Utility::Utility(QObject *parent) :
     QObject(parent)
 {  
@@ -33,3 +37,15 @@ QString Utility::getLocale()
 {
     return QLocale::system().name();
 }
+
+
+int Utility::getStatusBarHeight()
+{
+#ifdef Q_OS_ANDROID
+    jint height = QAndroidJniObject::callStaticMethod<jint>("com/qshen/qvideo/QVideoActivity", "getStatusBarHeight");
+    return height;
+#endif
+    return 0;
+}
+
+

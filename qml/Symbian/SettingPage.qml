@@ -1,7 +1,7 @@
 // import QtQuick 1.0 // to target S60 5th Edition or Maemo 5
 import QtQuick 1.1
 import com.nokia.symbian 1.1
-import "../JavaScript/Utility.js" as Utility
+import "../JavaScript/Utility.js" as Script
 import "BaseComponent"
 MyPage{
     id: settingpage;
@@ -64,7 +64,7 @@ MyPage{
                 width: 300;
                 text: qsTr("Check for new version");
                 onClicked: {
-                    Utility.utility.getVersion(loadVersionInfo, signalcenter.showMessage);
+                    Script.utility.getVersion(loadVersionInfo, signalcenter.showMessage);
                 }
             }
             Rectangle{
@@ -104,7 +104,7 @@ MyPage{
     function loadVersionInfo(oritxt){
         var obj = JSON.parse(oritxt);
 
-        if(Utility.versionStringToInt(obj.symbian.version) > Utility.versionStringToInt(appVersion)){
+        if(Script.versionStringToInt(obj.symbian.version) > Script.versionStringToInt(appVersion)){
             if(utility.getLocale().substring(0, 2) === "zh"){
                 newversiondialog.openDialog(obj.symbian.changeLog.zh, obj.symbian.url);
             }

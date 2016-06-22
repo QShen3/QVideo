@@ -1,10 +1,16 @@
-import QtQuick 2.4
+import QtQuick 2.5
+import QtQuick.Window 2.2
 import Material 0.2
 import "BaseComponent"
 
 ApplicationWindow{
     id: app;
     property bool loading;
+
+    //width: Screen.desktopAvailableWidth;
+    //height: Screen.desktopAvailableHeight;
+    width: 480;
+    height: 854;
 
     visible: true;
     theme {
@@ -14,7 +20,7 @@ ApplicationWindow{
         tabHighlightColor: "white"
     }
 
-    initialPage: HomePage{
+    HomePage{
         id: homepage;
     }
 
@@ -27,5 +33,10 @@ ApplicationWindow{
     }
     Snackbar{
         id:snackbar;
+    }
+
+    Component.onCompleted: {
+        pageStack.push(homepage);
+        console.log(Screen.pixelDensity);
     }
 }

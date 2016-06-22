@@ -2,7 +2,7 @@ import QtQuick 1.1
 import com.nokia.meego 1.1
 import com.nokia.extras 1.1
 import QtMobility.systeminfo 1.1
-import "../JavaScript/Utility.js" as Utility
+import "../JavaScript/Utility.js" as Script
 import "BaseComponent"
 import "Dialog";
 PageStackWindow{
@@ -48,9 +48,9 @@ PageStackWindow{
         //console.log(children[3].children[0].source);
         //children[4].children[0].source = "";
         if(settings.autoCheckNewVersion){
-            Utility.utility.getVersion(loadVersionInfo, signalcenter.showMessage);
+            Script.utility.getVersion(loadVersionInfo, signalcenter.showMessage);
         }
-        Utility.utility.getMessage();
+        Script.utility.getMessage();
         if(appVersion > settings.version){
             firstopendialog.open();
             settings.version = appVersion;
@@ -61,7 +61,7 @@ PageStackWindow{
     function loadVersionInfo(oritxt){
         var obj = JSON.parse(oritxt);
 
-        if(Utility.versionStringToInt(obj.meego.version) > Utility.versionStringToInt(appVersion)){
+        if(Script.versionStringToInt(obj.meego.version) > Script.versionStringToInt(appVersion)){
             if(utility.getLocale().substring(0, 2) === "zh"){
                 newversiondialog.openDialog(obj.meego.changeLog.zh, obj.meego.url);
             }

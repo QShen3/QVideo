@@ -76,6 +76,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/qml/Android/main.qml")));
 #elif defined(Q_OS_WINRT)
     engine.load(QUrl(QStringLiteral("qrc:/qml/WinRT/main.qml")));
+#elif defined(Q_OS_IOS)
+    engine.load(QUrl(QStringLiteral("qrc:/qml/iOS/main.qml")));
 #endif
 
 #endif

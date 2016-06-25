@@ -194,3 +194,23 @@ android{
     message(Andriod build)
 }
 
+ios{
+    RESOURCES += iOS.qrc
+
+    VERSION = 0.1.0
+    DEFINES += VER=\\\"$$VERSION\\\"
+
+    OTHER_FILES += \
+        qml/iOS/*.qml \
+        qml/iOS/BaseComponent/*.qml \
+        qml/iOS/Delegate/*.qml \
+        qml/iOS/Dialog/*.qml \
+        qml/iOS/Youku/*.qml \
+        qml/iOS/Youku/MainPage/*.qml \
+        qml/iOS/Youku/SubPage/*.qml \
+        qml/iOS/Youku/Delegate/*.qml
+
+    include(deployment.pri)
+    message(iOS build)
+}
+

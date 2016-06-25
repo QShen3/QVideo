@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/" lang="qml">
+        <file>qml/iOS/HomePage.qml</file>
+        <file>qml/iOS/main.qml</file>
+        <file>qml/iOS/BaseComponent/LoadingIndicator.qml</file>
+        <file>qml/iOS/BaseComponent/MainButton.qml</file>
+        <file>qml/iOS/BaseComponent/SignalCenter.qml</file>
+        <file>qml/iOS/BaseComponent/SliderView.qml</file>
+        <file>qml/iOS/Youku/MainPage.qml</file>
+        <file>qml/iOS/Youku/SubPage.qml</file>
+        <file>qml/iOS/Youku/Delegate/BoxComponent.qml</file>
+        <file>qml/iOS/Youku/Delegate/SliderComponent.qml</file>
+        <file>qml/iOS/Youku/Delegate/SubPageComponent.qml</file>
+        <file>qml/iOS/Youku/Delegate/TagComponent.qml</file>
+        <file>qml/iOS/Youku/MainPage/ChannelTabComponent.qml</file>
+        <file>qml/iOS/Youku/MainPage/MainTabComponent.qml</file>
+        <file>qml/iOS/Youku/SubPage/Type1Component.qml</file>
+        <file>qml/iOS/Youku/SubPage/Type4Component.qml</file>
+    </qresource>
+</RCC>

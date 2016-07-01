@@ -16,5 +16,7 @@
         <file>qml/Android/Youku/Delegate/BoxComponent.qml</file>
         <file>qml/Android/Youku/SubPage/Type4Component.qml</file>
         <file>qml/Android/Youku/Delegate/SubPageComponent.qml</file>
+        <file>qml/Android/Youku/Dialog/FilterDialog.qml</file>
+        <file>qml/Android/Youku/Delegate/FilterComponent.qml</file>
     </qresource>
 </RCC>

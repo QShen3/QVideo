@@ -1,4 +1,4 @@
-.pragma library
+//.pragma library
 
 function Request(url, method)
 {

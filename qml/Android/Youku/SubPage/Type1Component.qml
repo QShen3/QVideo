@@ -49,10 +49,12 @@ Component{
 
         Component.onCompleted: {
             indicator.open();
+            console.log(new Date().getTime());
             Youku.youku.getSubPage(cid, sub_channel_id, sub_channel_type, "", "", 1, loadsubpagetype1, showSubPageFailureInfo);
         }
 
         function loadsubpagetype1(oritxt){
+
             var obj = JSON.parse(oritxt);
 
             slidermodel.clear();

@@ -3,6 +3,7 @@ import QtQuick.Window 2.2
 import Material 0.2
 import "../../../JavaScript/Youku.js" as Youku
 import "../Delegate"
+import "../Dialog"
 Component{
     Item{
         Flickable{
@@ -47,9 +48,33 @@ Component{
             flickableItem: flicker;
         }
 
+        ActionButton{
+            id: filterbutton;
+            anchors{
+                left: parent.left;
+                bottom: parent.bottom;
+                margins: Units.dp(28);
+            }
+            iconName: "awesome/filter";
+            action: Action{
+                text: qsTr("filter");
+                onTriggered: {
+                    filterDialog.open();
+                }
+            }
+            visible: filtermodel.count!=0 && sortmodel.count!=0 && sub_channel_type==4;
+        }
+
+        FilterDialog{
+            id: filterDialog;
+        }
+
         Component.onCompleted: {
             indicator.open();
             Youku.youku.getSubPage(cid, sub_channel_id, sub_channel_type, filterString, ob, 1, loadsubpage, showSubPageFailureInfo);
+            if(sub_channel_type==4){
+                Youku.youku.getFilter(cid, loadFilter, showSubPageFailureInfo);
+            }
         }
 
         function loadsubpage(oritxt){

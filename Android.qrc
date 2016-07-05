@@ -1,5 +1,5 @@
 <RCC>
-    <qresource lang="qml" prefix="/">
+    <qresource prefix="/" lang="qml">
         <file>qml/Android/BaseComponent/LoadingIndicator.qml</file>
         <file>qml/Android/BaseComponent/MainButton.qml</file>
         <file>qml/Android/BaseComponent/SignalCenter.qml</file>
@@ -18,5 +18,7 @@
         <file>qml/Android/Youku/Delegate/SubPageComponent.qml</file>
         <file>qml/Android/Youku/Dialog/FilterDialog.qml</file>
         <file>qml/Android/Youku/Delegate/FilterComponent.qml</file>
+        <file>qml/Android/Youku/DetailPage.qml</file>
+        <file>qml/Android/Youku/Component/VideoPlayer.qml</file>
     </qresource>
 </RCC>

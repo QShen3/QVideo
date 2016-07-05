@@ -97,10 +97,10 @@ View{
                             anchors.fill: parent;
                             onClicked: {
                                 if(model.is_vv === 1){
-
+                                    pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title, currentVideoId: model.tid});
                                 }
                                 else{
-
+                                    pageStack.push(Qt.resolvedUrl("../DetailPage.qml"), {id: model.tid, title: model.title});
                                 }
                             }
                         }

@@ -175,7 +175,8 @@ android{
         qml/Android/Youku/MainPage/*.qml \
         qml/Android/Youku/SubPage/*.qml \
         qml/Android/Youku/Delegate/*.qml \
-        qml/Android/Youku/Dialog/*.qml
+        qml/Android/Youku/Dialog/*.qml \
+        qml/Android/Youku/Component/*.qml
 
     DISTFILES += \
         android/AndroidManifest.xml \

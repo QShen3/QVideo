@@ -37,7 +37,9 @@ ApplicationWindow{
 
     Component.onCompleted: {
         pageStack.push(homepage);
+        console.log(Screen.width + " " + Screen.height);
+        console.log(Screen.desktopAvailableWidth + " " + Screen.desktopAvailableHeight)
         console.log(Screen.pixelDensity);
-        console.log(Device.type);
+        //console.log(Device.type);
     }
 }

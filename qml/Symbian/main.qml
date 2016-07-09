@@ -12,6 +12,10 @@ PageStackWindow{
     platformInverted: true;
 
     showStatusBar: true;
+    /*StatusBar{
+        id: statusbar;
+        opacity: 0.1;
+    }*/
 
     focus: true;
 

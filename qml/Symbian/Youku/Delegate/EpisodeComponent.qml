@@ -15,6 +15,13 @@ Item{
         opacity: 0.2;
         visible: mousearea.pressed;
     }
+    Image{
+        sourceSize: Qt.size(30, 30);
+        height: sourceSize.height;
+        width: sourceSize.width;
+        source: "../../../pic/xin.png";
+        visible: model.is_new;
+    }
 
     MouseArea{
         id: mousearea

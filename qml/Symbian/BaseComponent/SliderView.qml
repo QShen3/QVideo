@@ -10,7 +10,7 @@ PathView{
     preferredHighlightEnd: 0.5;
     highlightMoveDuration: 200;
     flickDeceleration: 150;
-    snapMode: PathView.SnapOneItem;
+    //snapMode: PathView.SnapOneItem;
     path: Path{
         startX: -cover.width*cover.count/2+cover.width/2;
         startY: cover.height/2;

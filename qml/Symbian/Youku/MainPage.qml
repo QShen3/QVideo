@@ -12,9 +12,10 @@ MyPage{
     Head{
         id:head;
         color: "#06a7e1";
+        //height: 165;
         Image{
             anchors{
-                verticalCenter: parent.verticalCenter;
+                //verticalCenter: parent.verticalCenter;
                 left: parent.left;
                 leftMargin: 12;
             }
@@ -22,6 +23,22 @@ MyPage{
             source: "../../pic/youku_logo.svg";
         }
         z:1;
+        /*Row{
+            width: 360;
+            height: 55;
+            anchors.bottom: parent.bottom;
+            Repeater{
+                model: 4;
+                Item{
+                    width: 90;
+                    height: 55;
+                    Image{
+                        anchors.centerIn: parent;
+                        source: privateStyle.imagePath("toolbar-menu", false);
+                    }
+                }
+            }
+        }*/
     }
 
     tools: MyToolBarLayout{

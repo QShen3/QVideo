@@ -44,5 +44,6 @@
         <file>QVideo64.png</file>
         <file>QVideo80.png</file>
         <file>qml/pic/splash_symbian.png</file>
+        <file>qml/pic/xin.png</file>
     </qresource>
 </RCC>
